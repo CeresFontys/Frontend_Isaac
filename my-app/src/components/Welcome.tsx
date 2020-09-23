@@ -1,4 +1,3 @@
-import { format } from "path";
 import React, { Component } from 'react'
 
 class Welcome extends Component {
