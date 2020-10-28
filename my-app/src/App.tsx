@@ -1,40 +1,40 @@
 import React, { Component } from 'react';
-import Greet from './components/Greet'
-import Welcome from './components/Welcome'
-import Authenticate from 'react-openidconnect';
+// import Greet from './components/Greet'
+// import Welcome from './components/Welcome'
+// import Authenticate from 'react-openidconnect';
 import OidcSettings from './oidcsettings';
 
 import './App.css';
 
 class App extends Component {
  
-  constructor(props) {
-    super(props);
-    this.userLoaded = this.userLoaded.bind(this); 
-    this.userUnLoaded = this.userUnLoaded.bind(this);
+  // constructor(props) {
+  //   super(props);
+  //   this.userLoaded = this.userLoaded.bind(this); 
+  //   this.userUnLoaded = this.userUnLoaded.bind(this);
  
-    this.state = { user: undefined };
-  }  
+  //   this.state = { user: undefined };
+  // }  
  
-  userLoaded(user) {
-    if (user)
-      this.setState({ "user": user });
-  } 
+  // userLoaded(user) {
+  //   if (user)
+  //     this.setState({ "user": user });
+  // } 
   
-  userUnLoaded() {
-    this.setState({ "user": undefined });
-  } 
+  // userUnLoaded() {
+  //   this.setState({ "user": undefined });
+  // } 
  
-  NotAuthenticated() {
-    return <div>You are not authenticated, please click here to authenticate.</div>;
-  }
+  // NotAuthenticated() {
+  //   return <div>You are not authenticated, please click here to authenticate.</div>;
+  // }
  
   render() {
-      return (
-        <Authenticate OidcSettings={OidcSettings} userLoaded={this.userLoaded} userunLoaded={this.userUnLoaded} renderNotAuthenticated={this.NotAuthenticated}>
-            <div>If you see this you are authenticated.</div>
-        </Authenticate>
-      )
+       return (
+         <body>
+           Home page
+         </body>
+       );
   }
 }
  
