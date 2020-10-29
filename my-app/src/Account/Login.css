@@ -4,3 +4,8 @@
 #body{
     background-color: blue;
 }
+.card-img-top {
+    width: 80%;
+    height: 8vw;
+    object-fit: cover;
+}
