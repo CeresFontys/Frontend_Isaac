@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Login from './Account/Login';
+import BackgroundImage from "../images/Backgroundpatterns.png";
 
 ReactDOM.render(
   <React.StrictMode>
