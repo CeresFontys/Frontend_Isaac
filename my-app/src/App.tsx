@@ -1,14 +1,42 @@
 import React, { Component } from 'react';
-// import Greet from './components/Greet'
-// import Welcome from './components/Welcome'
-// import Authenticate from 'react-openidconnect';
-import OidcSettings from './oidcsettings';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
+import Login from './Views/Account/Login';
 import './App.css';
+import Header from './Components/Header'
 
 class App extends Component {
+
  
-  // constructor(props) {
+  render() {
+       return (
+      <Router>
+       <Header /> 
+
+        <Switch>
+          <Route path="/login">
+            <Login/>
+          </Route>
+        </Switch>
+      </Router>
+       );
+  }
+}
+ 
+export default App;
+
+
+
+
+
+
+
+
+ // constructor(props) {
   //   super(props);
   //   this.userLoaded = this.userLoaded.bind(this); 
   //   this.userUnLoaded = this.userUnLoaded.bind(this);
@@ -28,14 +56,3 @@ class App extends Component {
   // NotAuthenticated() {
   //   return <div>You are not authenticated, please click here to authenticate.</div>;
   // }
- 
-  render() {
-       return (
-         <body>
-           Home page
-         </body>
-       );
-  }
-}
- 
-export default App;

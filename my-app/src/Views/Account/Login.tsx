@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Logo from "../images/isaac-primary-logo-rgb-transparent-250px.png";
+import Logo from "../../Media/images/isaac-primary-logo-rgb-transparent-250px.png";
 import './Login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 class Login extends Component {
@@ -29,24 +29,27 @@ class Login extends Component {
     }
     render() {
         return (
-            <Card style={{width: '30rem', height: '30rem', marginLeft: 'auto', marginRight: 'auto', marginTop: '14%', backgroundColor: 'white'}}>
-                <Card.Img style={{marginLeft: '25%', width: '225px', height: '125px'}} variant="top"src={Logo}></Card.Img>
+            <div className="Background">
+            <Card className="LoginForm">
+                <Card.Img className="LoginFormLogo" src={Logo}></Card.Img>
                 <Card.Header style={{backgroundColor: 'white'}}>
-                    <h1 style={{textAlign: 'center', color: 'grey'}}>Login</h1> <br/>
-                    Welcome back! Login to acces the ISAAC heatmap</Card.Header>
+                    <h1>Login</h1> <br/>
+                    <span>Login to acces the ISAAC heatmap</span><br/>
+                    <span>Did you <a href="/login"> Forget your password?</a></span></Card.Header>
                 <Form>
-                    <Form.Group style={{marginTop: '5%'}} controlId="formBasicEmail">
-                        <Form.Control style={{width: '75%', marginLeft: 'auto',marginRight: 'auto'}} type="email" placeholder="Enter email" />
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Control type="email" placeholder="Enter email" />
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword">
-                        <Form.Control style={{width: '75%', marginLeft: 'auto',marginRight: 'auto'}} type="password" placeholder="Password" />
+                        <Form.Control type="password" placeholder="Password" />
                     </Form.Group>
-                    <Button size="lg" style={{width: '80%', marginLeft: '10%'}} variant="primary" type="submit">
+                    <Button size="lg" variant="primary" type="submit">
                         Login
                     </Button>
                 </Form>
             </Card>
+            </div>
         );
     }
 }

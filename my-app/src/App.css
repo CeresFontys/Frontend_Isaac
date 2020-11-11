@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+/* CUSTOM CSS */
+body, html{
+  font-family: OpenSans !important;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url("./Media/Fonts/Open_Sans/OpenSans-Regular.ttf");
+}
