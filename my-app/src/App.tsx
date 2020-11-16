@@ -21,19 +21,15 @@ class App extends Component {
       <Router>
        <Header /> 
         <Heatmap/>
-        
          <Switch>
-         
          <Route exact path="/login" component={Login}/>
          <div id="SideBar">
          <Navigation/>
           <Route exact path="/" component={FloorsPage}/>
           <Route exact path="/access-control" component={AccessControlPage}/>
           <Route exact path="/errorlog" component={ErrorLogPage}/>
-
           </div>
         </Switch>
-         
       </Router>
        );
   }
