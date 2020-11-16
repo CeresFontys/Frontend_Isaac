@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import Navigation from './Navigation'
 import './Header.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Logo from '../Media/images/isaac-logo-white.png'
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
     render(){
-       // if (window.location.pathname === '/login') return null;
+        if (window.location.pathname === '/login') return null;
         return(
         <header className="page-header">
-          <span className="font-bold">ReactOefenApp</span>
-
-            <Navigation />
+          <Link id="Logo" to="/">
+          <img src={Logo} alt="ISAAC"></img>
+          </Link>
         </header>
         )
     }

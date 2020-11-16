@@ -1,3 +1,15 @@
 .page-header{
     background: #009DDC;
+    height: 100px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    position: relative;
 }
+#Logo{
+    margin-left: 15px;
+}
+#Logo > img{
+    width: 180px;
+}
+

@@ -1,0 +1,48 @@
+#Navigation{
+    display: flex;
+    height: 100px;
+    align-items: center;
+    background: rgba(86, 177, 226, 1);
+    width: 100%;
+    justify-content: center;
+    right: 0;
+}
+#Links{
+    display: flex;
+}
+#Navigation #Links > div{
+    width: 125px;
+    cursor: pointer;
+}
+.Active:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    border-bottom: 2px solid white;
+    transition: width 0.3s ease;
+}
+#Navigation #Links > div:hover{
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+.NavIcon{
+    width: 45px;
+    
+}
+#Links a{
+    color: white;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.ErrorIcon{
+    padding: 7px;
+}
+.FloorIcon{
+    padding: 6px;
+}

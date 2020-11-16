@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Logo from "../../Media/images/isaac-primary-logo-rgb-transparent-250px.png";
 import './Login.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 class Login extends Component {
     
     // constructor(props) {

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './Login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-class HomePage extends Component {
+import './ErrorLog.css';
+class ErrorLogPage extends Component {
     render() {
         return (
-            <div>home</div>
+            <div>ErrorLog</div>
         );
     }
 }
 
-export default HomePage;
+export default ErrorLogPage;

@@ -8,6 +8,12 @@ import {
 import Login from './Views/Account/Login';
 import './App.css';
 import Header from './Components/Header'
+import Navigation from './Components/Navigation';
+import FloorsPage from './Views/Floors/Floors';
+import AccessControlPage from './Views/AccessControl/AccessControl';
+import ErrorLogPage from './Views/ErrorLog/ErrorLog';
+import Heatmap from './Views/Heatmap/Heatmap';
+
 
 class App extends Component {
 
@@ -16,12 +22,20 @@ class App extends Component {
        return (
       <Router>
        <Header /> 
-
+        <Heatmap/>
         <Switch>
-          <Route path="/login">
-            <Login/>
-          </Route>
+        <React.Fragment>
+        <Route exact path="/login" component={Login}/>
+        
+         <div id="SideBar">
+         <Navigation/>
+          <Route exact path="/" component={FloorsPage}/>
+          <Route exact path="/access-control" component={AccessControlPage}/>
+          <Route exact path="/errorlog" component={ErrorLogPage}/>
+          </div>
+          </React.Fragment>
         </Switch>
+        
       </Router>
        );
   }
