@@ -4,6 +4,8 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 import BackgroundImage from "../images/Backgroundpatterns.png";
+import App from "../src/App";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
