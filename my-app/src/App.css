@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+/* CUSTOM CSS */
+body, html{
+  font-family: OpenSans !important;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url("./Media/Fonts/Open_Sans/OpenSans-Regular.ttf");
+}
+
+#SideBar{
+    position: absolute;
+    width: 600px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
+}
