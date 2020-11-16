@@ -14,28 +14,26 @@ import AccessControlPage from './Views/AccessControl/AccessControl';
 import ErrorLogPage from './Views/ErrorLog/ErrorLog';
 import Heatmap from './Views/Heatmap/Heatmap';
 
-
 class App extends Component {
 
- 
   render() {
        return (
       <Router>
        <Header /> 
         <Heatmap/>
-        <Switch>
-        <React.Fragment>
-        <Route exact path="/login" component={Login}/>
         
+         <Switch>
+         
+         <Route exact path="/login" component={Login}/>
          <div id="SideBar">
          <Navigation/>
           <Route exact path="/" component={FloorsPage}/>
           <Route exact path="/access-control" component={AccessControlPage}/>
           <Route exact path="/errorlog" component={ErrorLogPage}/>
+
           </div>
-          </React.Fragment>
         </Switch>
-        
+         
       </Router>
        );
   }

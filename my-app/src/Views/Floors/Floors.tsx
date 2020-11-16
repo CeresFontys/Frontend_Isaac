@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SensorList from './Components/SensorList'
+import SensorData from './Components/SensorData'
 
 
 
@@ -9,7 +9,7 @@ class FloorsPage extends Component {
         return (
             <div>floors
                 <br/>
-                <SensorList />
+                <SensorData />
                 </div>
         
         );
