@@ -8,9 +8,10 @@ class FloorsPage extends Component {
     render() {
         return (
             <div>floors
+                
                 <br/>
                 <SensorData />
-                </div>
+            </div>
         
         );
     }
