@@ -46,6 +46,7 @@ export default () => {
   
   const [connectionStatus, setConnectionStatus] = useState(false);
   const [messages, setMessages] = useState([]);
+  const sensorTopicList =[];
 
   useEffect(() => {
 	const topic = "#";
@@ -60,9 +61,15 @@ export default () => {
 			}});
 		})
     client.on('message', (topic, payload, packet) => {
-	  setMessages(messages.concat(payload.toString()));
-	  console.log(topic);
-
+    setMessages(messages.concat(payload.toString()));
+    var res = topic.substring(
+      topic.indexOf("/")+1 , 
+      topic.indexOf("/")+8
+  );
+    if(!sensorTopicList.includes(res)){
+      sensorTopicList.push(res);
+    //  console.log(sensorTopicList)
+    }
     });
   }, [])
  
