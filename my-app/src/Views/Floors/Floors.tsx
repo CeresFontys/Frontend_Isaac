@@ -1,22 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SensorData from './Components/SensorData'
 import SensorList from './Components/SensorList';
 
 
 
-class FloorsPage extends Component {
-    render() {
-        return (
+function FloorsPage() { 
+     return (
             <div>floors
                 
                 <br/>
-                <SensorList />
-                <SensorData />
+                
+               <SensorList />
+               
             </div>
         
-        );
-    }
+    );
+    
 }
 
 export default FloorsPage;

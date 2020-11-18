@@ -1,35 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useAxiosGet } from '../../../Hooks/HttpRequest'
-import { useParams } from 'react-router-dom'
+import {GetSensorDbData} from './SensorDbData';
+import {SensorMqttData} from './SensorMqttData'
+import {useSelector} from 'react-redux';
 
 function SensorList() {
-   // const { floor } = useParams()
-    const url = `http://localhost:5002/api/sensor/sensors/3`
-    
-    let sensors = useAxiosGet(url);
-    let content = null
+const sensors = useSelector(state => state.sensors);
+GetSensorDbData();
+SensorMqttData();
 
-    
-
-    if(sensors.loading){
-        content = <span>Loading Sensors...</span>
-    }
-    if(sensors.error){
-        content = <p> Could not load any sensors on this floor</p>
-    }
-    if (sensors.data) {
-        console.log(sensors);
-        content = 
-            <div>bruh</div>
-        
-    }
-    return (
-        <div id="SensorListContainer">
-            <section><h2>Sensors</h2><span>+</span></section>
-            {content}
-        </div>
-    )
+let content = <div>Loading sensors..</div>
+if(sensors){
+    content = [];
+    console.log(sensors);
+    sensors.forEach(sensor => {
+       content.push(
+       <div key={sensor.name}>
+           <span>{sensor.name}    </span>
+           <span>temp: {Math.round((parseFloat(sensor.temperature) + Number.EPSILON) * 100) / 100}    </span>
+           <span>hum:{Math.round((parseFloat(sensor.humidity) + Number.EPSILON) * 100) / 100}    </span>
+       </div>);
+    });
+}
+   
+   return(
+       <div>
+          {content}
+       </div>
+   )
 }
 
 export default SensorList;
