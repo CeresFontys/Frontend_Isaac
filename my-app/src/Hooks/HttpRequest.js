@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 export function useAxiosGet(url){
@@ -21,7 +21,6 @@ export function useAxiosGet(url){
                     data: response.data,
                     error: false
                 })
-                console.log(response.data)
             }).catch(error => {
                 setRequest({
                     loading: false,

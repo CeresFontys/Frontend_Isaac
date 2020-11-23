@@ -3,11 +3,24 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import App from "./App";
+import {createStore} from 'redux';
+import allReducers from "./reducers";
+import { Provider } from 'react-redux';
+
+const store = createStore(allReducers);
 
 ReactDOM.render(
+<<<<<<< HEAD:my-app/src/index.tsx
   <React.Fragment>
     <App />
   </React.Fragment>,
+=======
+  <React.StrictMode>
+    <Provider store={store}>
+    <App />
+    </Provider>
+  </React.StrictMode>,
+>>>>>>> sensorData:my-app/src/index.js
   document.getElementById("root")
 );
 
