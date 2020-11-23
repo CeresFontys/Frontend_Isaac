@@ -49,15 +49,15 @@ class AddFloor extends Component {
 				console.log(res);
 				console.log(res.data);
 				this.setState({
-					SubmitMessage: (
-						<div className="unsuccesfull">Unsuccesfull try again later</div>
-					),
+					SubmitMessage: <div className="succes">Succes</div>,
 				});
 			})
 			.catch((error) => {
 				console.log(error);
 				this.setState({
-					SubmitMessage: <div className="succes">Succes</div>,
+					SubmitMessage: (
+						<div className="unsuccesfull">Unsuccesfull try again later</div>
+					),
 				});
 			});
 	};
@@ -66,7 +66,7 @@ class AddFloor extends Component {
 		return (
 			<Form className="box" onSubmit={this.handleSubmit}>
 				<Form.Group className="filearea" controlId="formBasicImage">
-					<Form.File onChange={this.handleChangeImage} />
+					<Form.File required onChange={this.handleChangeImage} />
 				</Form.Group>
 				<Form.Group controlId="formBasicName">
 					<Form.Control
@@ -74,6 +74,7 @@ class AddFloor extends Component {
 						placeholder="Enter name"
 						onChange={this.handleChangeName}
 						className="textarea"
+						required
 					></Form.Control>
 				</Form.Group>
 
@@ -83,6 +84,7 @@ class AddFloor extends Component {
 						placeholder="Enter length"
 						onChange={this.handleChangeLength}
 						className="textarea"
+						required
 					></Form.Control>
 				</Form.Group>
 
@@ -92,6 +94,7 @@ class AddFloor extends Component {
 						placeholder="Enter width"
 						onChange={this.handleChangeWidth}
 						className="textarea"
+						required
 					></Form.Control>
 				</Form.Group>
 				<div className="row rowpos">
