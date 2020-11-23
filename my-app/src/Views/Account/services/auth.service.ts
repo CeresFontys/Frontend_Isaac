@@ -1,4 +1,6 @@
 import axios from "axios";
+import jwt_decode from "jwt-decode";
+import { User } from "../models/User";
 
 const API_URL = "http://localhost:5008/api/auth/";
 
@@ -10,11 +12,11 @@ class AuthService {
 				password,
 			})
 			.then((response) => {
-				if (response.data.accessToken) {
+				if (response.data) {
 					localStorage.setItem("user", JSON.stringify(response.data));
+					console.log(response.data);
+					return response.data;
 				}
-				console.log(response.data);
-				return response.data;
 			});
 	}
 
@@ -30,7 +32,8 @@ class AuthService {
 	}
 
 	getCurrentUser() {
-		return JSON.parse(localStorage.getItem("user") || "{}");
+		var parsedJson = JSON.parse(localStorage.getItem("user") || "{}");
+		var user = new User(jwt_decode(parsedJson));
 	}
 }
 

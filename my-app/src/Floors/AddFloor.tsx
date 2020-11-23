@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "../Views/Account/components/node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
