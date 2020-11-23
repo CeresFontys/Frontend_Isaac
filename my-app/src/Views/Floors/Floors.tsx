@@ -8,10 +8,10 @@ class FloorsPage extends Component {
 	render() {
 		return (
 			<div>
-				<h3 className="headerpos">Floor</h3>
+				<h2 className="headerpos">Floor</h2>
 				<DropDown />
 				<AddFloor />
-				<h3 className="headerpos">Sensors</h3>
+				<h2 className="headerpos">Sensors</h2>
 				<SensorData />
 			</div>
 		);
