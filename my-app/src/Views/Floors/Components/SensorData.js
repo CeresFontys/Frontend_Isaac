@@ -1,22 +1,21 @@
 import React, { Component } from "react";
-import ReactDOM from 'react-dom'
 import { Connector, subscribe } from 'react-mqtt-client'
 
 class SensorData extends Component {
 	render() {
 		return (
-				<Connector
-					mqttProps={{
-						url: 'wss://server.kurza.nl:8081',
-						options: { 
-							protocol:"wss", 
-							username: "default",
-							password: "Fontys123!"
-						},
-					}}
-				>
-					<Connected />
-				</Connector>
+			<Connector
+				mqttProps={{
+					url: 'wss://server.kurza.nl:8081',
+					options: {
+						protocol: "wss",
+						username: "default",
+						password: "Fontys123!"
+					},
+				}}
+			>
+				<Connected />
+			</Connector>
 
 		)
 	}
@@ -27,7 +26,7 @@ const MessageList = props => {
 	const { mqtt } = props
 	return (
 		<>
-		    {console.log(props)}
+			{console.log(props)}
 			{/* {props.data.map((d, i) => (
 			//	console.log(d)
 			))} */}//
