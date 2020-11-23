@@ -46,7 +46,6 @@ class App extends Component {
               component={ErrorLogPage}
             />
           </div>
-          <Route path="/" render={() => <div>404</div>} />
         </Switch>
       </BrowserRouter>
     );
