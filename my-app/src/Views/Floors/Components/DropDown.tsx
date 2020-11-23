@@ -11,12 +11,12 @@ class DropDown extends Component {
 		dropDownValue: "Floor 1",
 	};
 
-	GetData() {
-		const url = "url";
-		let Floors = useAxiosGet(url);
-	}
+	//GetData() {
+	//	const url = "url";
+	//	let Floors = useAxiosGet(url);
+	//}
 
-	Floors = useAxiosGet("dhuwadhdw");
+	//Floors = useAxiosGet("dhuwadhdw");
 
 	changeValue(text: any) {
 		this.setState({ dropDownValue: text });
@@ -28,13 +28,28 @@ class DropDown extends Component {
 				<DropdownButton
 					id="dropdown-item-button"
 					title={this.state.dropDownValue}
+					className="dropdown"
 				>
 					<Dropdown.Item
 						as="button"
 						value="1"
-						onClick={() => this.changeValue("this.context")}
+						onClick={() => this.changeValue("Floor 1")}
 					>
-						<div>Item #1</div>
+						<div>Floor 1</div>
+					</Dropdown.Item>
+					<Dropdown.Item
+						as="button"
+						value="2"
+						onClick={() => this.changeValue("Floor 2")}
+					>
+						<div>Floor 2</div>
+					</Dropdown.Item>
+					<Dropdown.Item
+						as="button"
+						value="3"
+						onClick={() => this.changeValue("Floor 3")}
+					>
+						<div>Floor 3</div>
 					</Dropdown.Item>
 				</DropdownButton>
 			</div>

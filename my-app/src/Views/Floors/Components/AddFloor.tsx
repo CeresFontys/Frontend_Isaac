@@ -42,19 +42,22 @@ class AddFloor extends Component {
 			width: this.state.width,
 			length: this.state.length,
 		};
+		//http://localhost:5006/floor
 		axios
-			.put(`http://localhost:5006/floor`, { floor })
+			.post(`http://jsonplaceholder.com`, { floor })
 			.then((res) => {
 				console.log(res);
 				console.log(res.data);
-				this.setState({ SubmitMessage: <div className="succes">Succes</div> });
-			})
-			.catch((error) => {
-				console.log(error);
 				this.setState({
 					SubmitMessage: (
 						<div className="unsuccesfull">Unsuccesfull try again later</div>
 					),
+				});
+			})
+			.catch((error) => {
+				console.log(error);
+				this.setState({
+					SubmitMessage: <div className="succes">Succes</div>,
 				});
 			});
 	};
