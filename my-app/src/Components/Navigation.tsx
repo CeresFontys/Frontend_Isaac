@@ -18,7 +18,7 @@ class Navigation extends Component {
             <div>
                 <Link to="/access-control">
                 <img className="NavIcon AccesIcon" src={AccesIcon} alt=""/>
-                Acces control </Link>
+                Access control </Link>
             </div>
             <div>
                 <Link to="/errorlog">

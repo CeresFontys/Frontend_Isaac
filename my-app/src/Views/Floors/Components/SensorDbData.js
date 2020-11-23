@@ -1,15 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAxiosGet } from '../../../Hooks/HttpRequest'
 import {useDispatch, useSelector} from 'react-redux';
-import {update} from '../../../actions'
+import {setGroups, update} from '../../../actions'
 
 export function GetSensorDbData() {
-   // const { floor } = useParams()
     const dispatch = useDispatch();
     const sensorsStoreData = useSelector(state => state.sensors);
-    const url = `http://localhost:5002/api/sensor/sensors`
+    const groupsStoreData = useSelector(state => state.groups);
+    const urlSensors = `http://localhost:5002/api/sensor/sensors`;
+    const urlGroups = `http://localhost:5002/api/group/groups`
     
-    let sensors = useAxiosGet(url);
+    const sensors = useAxiosGet(urlSensors);
+    const groups = useAxiosGet(urlGroups);
 
     if (sensors.data && sensorsStoreData == null) {
         let sensorData = sensors.data;
@@ -18,5 +20,9 @@ export function GetSensorDbData() {
             element.humidity = "?";
         });
         dispatch(update(sensorData));       
+    }
+    if (groups.data && groupsStoreData == null) {
+        dispatch(setGroups(groups.data)); 
+        console.log(groupsStoreData);      
     }
 }

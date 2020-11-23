@@ -16,11 +16,11 @@ export function SensorMqttData(sensorList) {
   
 
   useEffect(() => {
-	const topic = "#";
+	const topic = "frontend/#";
   mqttClient = mqtt.connect("wss://server.kurza.nl:8081", {protocol:"wss", username: "default", password: "Fontys123!"});
 	mqttClient.on('connect', () => {
 		setConnectionStatus(true);
-		mqttClient.subscribe('#', function (err) {
+		mqttClient.subscribe(topic, function (err) {
 			if (!err) {
 			 console.log(err);
 			}});
@@ -34,7 +34,7 @@ export function SensorMqttData(sensorList) {
       value: payload.toString()
     }
     setUpdatedSensor(updateSensor);
-    console.log(updateSensor);  
+    dispatch(update());
     });
 
     return() => {

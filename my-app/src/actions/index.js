@@ -11,3 +11,10 @@ export const addSensor = (data) =>{
         payload: data
     };
 }
+
+export const setGroups = (data) =>{
+    return{
+        type: 'SETGROUPS',
+        payload: data
+    };
+}
