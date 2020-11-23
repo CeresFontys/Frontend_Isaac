@@ -1,0 +1,59 @@
+.btn {
+	background: #009ddc;
+	border-radius: 5px;
+	height: 37px;
+}
+
+.textarea {
+	background: #ebebeb;
+	border-radius: 5px;
+	height: 37px;
+	width: 560px;
+	margin: 10px;
+}
+
+.textarea:focus {
+	color: #495057;
+	background-color: #ebebeb;
+	border-color: #80bdff;
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.box {
+	background: #f8f8f8;
+	border-radius: 5px;
+	margin: 10px;
+}
+
+.btnpos {
+	margin-left: auto;
+}
+
+.rowpos {
+	padding: 0px 25px 10px 0px;
+}
+
+.filearea {
+	padding: 10px 10px 0px 10px;
+}
+
+.headerpos {
+	padding: 0px 10px 0px 10px;
+}
+
+.unsuccesfull {
+	padding-left: 300px;
+	padding-top: 8px;
+	color: red;
+}
+
+.succes {
+	padding-left: 460px;
+	padding-top: 8px;
+	color: green;
+}
+
+.dropdown {
+	margin-left: 12px;
+}

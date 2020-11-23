@@ -3,13 +3,16 @@ import axios from "axios";
 import "../Views/Account/components/node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import "../Floors.css";
 
 class AddFloor extends Component {
 	state = {
+		id: "",
 		image: "",
 		name: "",
 		width: "",
 		length: "",
+		SubmitMessage: <div></div>,
 	};
 
 	handleChangeName = (event: any) => {
@@ -39,47 +42,67 @@ class AddFloor extends Component {
 			width: this.state.width,
 			length: this.state.length,
 		};
-		//`https://localhost:5000/floor/
-		axios.post(`https://localhost:5000/floor/`, { floor }).then((res) => {
-			console.log(res);
-			console.log(res.data);
-		});
+		//http://localhost:5006/floor
+		axios
+			.post(`http://jsonplaceholder.com`, { floor })
+			.then((res) => {
+				console.log(res);
+				console.log(res.data);
+				this.setState({
+					SubmitMessage: <div className="succes">Succes</div>,
+				});
+			})
+			.catch((error) => {
+				console.log(error);
+				this.setState({
+					SubmitMessage: (
+						<div className="unsuccesfull">Unsuccesfull try again later</div>
+					),
+				});
+			});
 	};
 
 	render() {
 		return (
-			<Form onSubmit={this.handleSubmit}>
-				<h1>Floor</h1>
-				<Form.Group controlId="formBasicImage">
-					<Form.File onChange={this.handleChangeImage} />
+			<Form className="box" onSubmit={this.handleSubmit}>
+				<Form.Group className="filearea" controlId="formBasicImage">
+					<Form.File required onChange={this.handleChangeImage} />
 				</Form.Group>
 				<Form.Group controlId="formBasicName">
-					<Form.Label>Name</Form.Label>
 					<Form.Control
 						type="name"
 						placeholder="Enter name"
 						onChange={this.handleChangeName}
+						className="textarea"
+						required
 					></Form.Control>
 				</Form.Group>
 
 				<Form.Group controlId="formBasicLength">
-					<Form.Label>Length</Form.Label>
 					<Form.Control
 						type="number"
 						placeholder="Enter length"
 						onChange={this.handleChangeLength}
+						className="textarea"
+						required
 					></Form.Control>
 				</Form.Group>
 
 				<Form.Group controlId="formBasicWidth">
-					<Form.Label>Width</Form.Label>
 					<Form.Control
 						type="number"
 						placeholder="Enter width"
 						onChange={this.handleChangeWidth}
+						className="textarea"
+						required
 					></Form.Control>
 				</Form.Group>
-				<Button type="submit">Add floor</Button>
+				<div className="row rowpos">
+					{this.state.SubmitMessage}
+					<Button type="submit" className="btn btnpos">
+						Save
+					</Button>
+				</div>
 			</Form>
 		);
 	}
