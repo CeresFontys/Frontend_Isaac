@@ -27,7 +27,7 @@ class App extends Component {
           />
           <div id="SideBar">
             <Navigation />
-            <GuardedRoute
+            <NotGuardedRoute
               exact
               path="/floors"
               isAuthenticated={localStorage.getItem("user")}

@@ -42,9 +42,8 @@ class AddFloor extends Component {
       width: this.state.width,
       length: this.state.length,
     };
-    //http://localhost:5006/floor
     axios
-      .post(`http://jsonplaceholder.com`, { floor })
+      .post(`http://localhost:5006/floor`, { floor })
       .then((res) => {
         console.log(res);
         console.log(res.data);
