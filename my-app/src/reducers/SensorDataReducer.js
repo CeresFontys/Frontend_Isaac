@@ -1,4 +1,4 @@
-const sensorDataReducer = (action, state = null) => {
+const sensorDataReducer = (state = null, action) => {
   switch (action.type) {
     case "UPDATE":
       return (state = action.payload);
