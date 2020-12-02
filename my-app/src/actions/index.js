@@ -1,13 +1,13 @@
-export const update = (data) =>{
+export const setSensors = (data) =>{
     return{
-        type: 'UPDATE',
+        type: 'SETSENSORS',
         payload: data
     };
 }
 
-export const addSensor = (data) =>{
+export const updateSensorGroup = (data) =>{
     return{
-        type: 'ADDSENSOR',
+        type: 'UPDATESENSORS',
         payload: data
     };
 }

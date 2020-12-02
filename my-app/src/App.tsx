@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Login from "./Views/Account/login.component";
 import "./App.css";
@@ -12,8 +12,7 @@ import NotGuardedRoute from "../src/Routes/NotGuardedRoute";
 import FloorsPage from "./Views/Floors/Floors";
 import GuardedRoute from "./Routes/GuardedRoute";
 
-class App extends Component {
-  render() {
+function App() {
     return (
       <BrowserRouter>
         <Header />
@@ -27,7 +26,7 @@ class App extends Component {
           />
           <div id="SideBar">
             <Navigation />
-            <GuardedRoute
+            <NotGuardedRoute
               exact
               path="/floors"
               isAuthenticated={localStorage.getItem("user")}
@@ -50,5 +49,4 @@ class App extends Component {
       </BrowserRouter>
     );
   }
-}
 export default App;

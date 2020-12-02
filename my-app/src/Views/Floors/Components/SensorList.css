@@ -50,7 +50,7 @@ user-select: none;
     flex-direction: column;
     align-items: start;
     user-select: none;
-
+    position: relative;
     max-height: 44px;
     transition: max-height 0.7s cubic-bezier(0,1,0,1);
     overflow: hidden;
@@ -78,6 +78,11 @@ user-select: none;
     margin-right: 15px;
     
 }
+
+.groupList-hidden{
+    display: none;
+}
+
 .groupList{
     margin-top: 13px;
     width: 100%;

@@ -11,7 +11,7 @@ export default class SensorItem extends Component {
     let temp = getTemperature(this.props.sensor.temperature)
     let hum = getHumidity(this.props.sensor.humidity)
       return (
-        <Draggable draggableId={this.props.sensor.name} index={this.props.index}> 
+        <Draggable draggableId={this.props.sensor.id.toString()} index={this.props.sensor.uiIndex} > 
         {provided =>(
           <div className="sensorItem"
            {...provided.draggableProps}
