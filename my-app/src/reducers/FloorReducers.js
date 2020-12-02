@@ -1,4 +1,4 @@
-const FloorReducers = (action, state = null) => {
+const FloorReducers = (state = null, action) => {
   switch (action.type) {
     case "SETFLOOR":
       return (state = action.payload);

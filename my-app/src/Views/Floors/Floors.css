@@ -1,59 +1,74 @@
 .btn {
-	background: #009ddc;
-	border-radius: 5px;
-	height: 37px;
+  background: #009ddc;
+  border-radius: 5px;
+  height: 37px;
 }
 
 .textarea {
-	background: #ebebeb;
-	border-radius: 5px;
-	height: 37px;
-	width: 560px;
-	margin: 10px;
+  background: #ebebeb;
+  border-radius: 5px;
+  height: 37px;
+  width: 100%;
 }
 
 .textarea:focus {
-	color: #495057;
-	background-color: #ebebeb;
-	border-color: #80bdff;
-	outline: 0;
-	box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  color: #495057;
+  background-color: #ebebeb;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 .box {
-	background: #f8f8f8;
-	border-radius: 5px;
-	margin: 10px;
+  background: #f8f8f8;
+  border-radius: 5px;
+  margin-top: 10px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.7s cubic-bezier(0, 1, 0, 1);
+  box-sizing: border-box;
+}
+
+.boxOpen {
+  max-height: 1000px;
+  transition: max-height 0.7s ease-in;
+}
+
+.box > form {
+  margin: 10px;
 }
 
 .btnpos {
-	margin-left: auto;
-}
-
-.rowpos {
-	padding: 0px 25px 10px 0px;
-}
-
-.filearea {
-	padding: 10px 10px 0px 10px;
-}
-
-.headerpos {
-	padding: 0px 10px 0px 10px;
+  float: right;
+  margin-bottom: 10px;
 }
 
 .unsuccesfull {
-	padding-left: 300px;
-	padding-top: 8px;
-	color: red;
+  padding-left: 300px;
+  padding-top: 8px;
+  color: red;
 }
 
 .succes {
-	padding-left: 460px;
-	padding-top: 8px;
-	color: green;
+  padding-left: 460px;
+  padding-top: 8px;
+  color: green;
 }
 
-.dropdown {
-	margin-left: 12px;
+.topRowDropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.sliderIcon {
+  position: absolute;
+  right: 0;
+}
+
+.contentContainer {
+  width: 80%;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
