@@ -1,25 +1,25 @@
-.sensorItem img{
-    width: 20px;
+.sensorItem img {
+  width: 20px;
 }
-.sensorOptionsIcon{
-    width: 20px;    
-    right: 0;
-    position: absolute;
-    margin-right: 10px;
-    cursor: pointer;
+.sensorOptionsIcon {
+  width: 20px;
+  right: 0;
+  position: absolute;
+  margin-right: 10px;
+  cursor: pointer;
 }
-.headerIcons{
-    position: absolute;
-    right: 0; 
+.headerIcons {
+  position: absolute;
+  right: 0;
 }
-.GroupIcon{
-    width: 20px;
+.GroupIcon {
+  width: 20px;
 }
-.headerIcons img{
-    width: 20px; 
-    margin-right: 5px;
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
+.headerIcons img {
+  width: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
 }
 img.chevron-down.flip {
     transform: rotateX(180deg);
@@ -55,28 +55,27 @@ user-select: none;
     transition: max-height 0.7s cubic-bezier(0,1,0,1);
     overflow: hidden;
 }
-.group-open{
-    max-height: 1000px;
-    transition: max-height 0.7s ease-in;
+.group-open {
+  max-height: 1000px;
+  transition: max-height 0.7s ease-in;
 }
-.SensorGroup .sensorItem{
-    background: white;
-    height: 41px;
+.SensorGroup .sensorItem {
+  background: white;
+  height: 41px;
 }
-.SensorGroup .sensorItem > *{
-    zoom: 0.9;
+.SensorGroup .sensorItem > * {
+  zoom: 0.9;
 }
-.GroupHeader{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    position: relative;
+.GroupHeader {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  position: relative;
 }
-.GroupHeader .SensorName{
-    width: unset;
-    max-width: 200px;
-    margin-right: 15px;
-    
+.GroupHeader .SensorName {
+  width: unset;
+  max-width: 200px;
+  margin-right: 15px;
 }
 
 .groupList-hidden{
@@ -88,49 +87,43 @@ user-select: none;
     width: 100%;
 }
 
-#SensorListContainer{
-    width: 80%;
-    left: 0;
-    right: 0;
-    margin: auto;
+#SensorListContainer h2 {
+  display: inline-block;
 }
-#SensorListContainer h2{
-    display: inline-block;
+.SensorName {
+  color: #6c7c7c;
+  margin-left: 10px;
+  font-size: 16px;
+  width: 80px;
+  display: inline-block;
+  white-space: nowrap;
 }
-.SensorName{
-    color: #6C7C7C;
-    margin-left: 10px;
-    font-size: 16px;
-    width: 80px;
-    display: inline-block;
-    white-space: nowrap;
+.SensorTemp {
+  display: inline-block;
+  width: 60px;
+  white-space: nowrap;
+  overflow: hidden;
 }
-.SensorTemp{
-    display: inline-block;
-    width: 60px;
-    white-space: nowrap;
-    overflow: hidden;;
-}
-.SensorHum{
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;;
+.SensorHum {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .SensorHum::after {
-    content: "HUM";
-    font-size: 8px;
-    position: absolute;
-    margin-left: 5px;
+  content: "HUM";
+  font-size: 8px;
+  position: absolute;
+  margin-left: 5px;
 }
-.color-green{
- color: #44DE1E;
+.color-green {
+  color: #44de1e;
 }
-.color-yellow{
-color: #DADE1E;
+.color-yellow {
+  color: #dade1e;
 }
-.color-red{
- color: #DE3636;
+.color-red {
+  color: #de3636;
 }
-.color-blue{
-    color: #36B6DE;
+.color-blue {
+  color: #36b6de;
 }

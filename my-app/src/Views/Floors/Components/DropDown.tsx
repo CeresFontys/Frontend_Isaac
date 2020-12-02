@@ -1,60 +1,64 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import "../Floors.css";
-import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import { useAxiosGet } from "../../../Hooks/HttpRequest";
+import { useDispatch, useSelector } from "react-redux";
+import { SetFloor } from "../../../actions";
+import SettingsIcon from "../../../Media/icons/SettingsIcon.svg";
 
-class DropDown extends Component {
-	state = {
-		dropDownValue: "Floor 1",
-	};
+function DropDown(props) {
+  const dispatch = useDispatch();
+  const currentFloor = useSelector((state: any) => state.floors);
+  const url = "http://localhost:5006/floor";
+  let Floors = useAxiosGet(url);
 
-	//GetData() {
-	//	const url = "url";
-	//	let Floors = useAxiosGet(url);
-	//}
+  const [dropDownValue, setdropDownValue] = useState("Loading");
+  const [isLoading, setisLoading] = useState(true);
 
-	//Floors = useAxiosGet("dhuwadhdw");
+  const UpdateFloor = (floorId) => {
+    dispatch(SetFloor(floorId));
+  };
 
-	changeValue(text: any) {
-		this.setState({ dropDownValue: text });
-	}
+  let floor = "loading";
+  if (Floors.data) {
+    if (isLoading == true) {
+      setdropDownValue(Floors.data[0].name);
+      UpdateFloor(Floors.data[0].id);
+      setisLoading(false);
+    }
+    floor = Floors.data.map((item, key) => (
+      <Dropdown.Item
+        as="button"
+        value={item.id}
+        onClick={() => {
+          setdropDownValue(item.name);
+          UpdateFloor(item.id);
+        }}
+      >
+        <div>{item.name}</div>
+      </Dropdown.Item>
+    ));
+  }
+  if (Floors.error) {
+    alert("Database is not responding, please try again later.");
+  }
 
-	render() {
-		return (
-			<div>
-				<DropdownButton
-					id="dropdown-item-button"
-					title={this.state.dropDownValue}
-					className="dropdown"
-				>
-					<Dropdown.Item
-						as="button"
-						value="1"
-						onClick={() => this.changeValue("Floor 1")}
-					>
-						<div>Floor 1</div>
-					</Dropdown.Item>
-					<Dropdown.Item
-						as="button"
-						value="2"
-						onClick={() => this.changeValue("Floor 2")}
-					>
-						<div>Floor 2</div>
-					</Dropdown.Item>
-					<Dropdown.Item
-						as="button"
-						value="3"
-						onClick={() => this.changeValue("Floor 3")}
-					>
-						<div>Floor 3</div>
-					</Dropdown.Item>
-				</DropdownButton>
-			</div>
-		);
-	}
+  return (
+    <div className="topRowDropdown">
+      <img
+        className="sliderIcon"
+        onClick={() => {
+          props.onClick(!props.isVisible);
+        }}
+        src={SettingsIcon}
+      ></img>
+      <DropdownButton id="dropdown-item-button" title={dropDownValue}>
+        {floor}
+      </DropdownButton>
+    </div>
+  );
 }
 
 export default DropDown;

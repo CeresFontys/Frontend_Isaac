@@ -12,9 +12,9 @@ export const updateSensorGroup = (data) =>{
     };
 }
 
-export const setGroups = (data) =>{
-    return{
-        type: 'SETGROUPS',
-        payload: data
-    };
-}
+export const setGroups = (data) => {
+  return {
+    type: "SETGROUPS",
+    payload: data,
+  };
+};
