@@ -18,6 +18,7 @@ function SensorList() {
   GetSensorDbData();
   SensorMqttData(); 
   RandomizeData();
+  
   let sensorGroups = <div>Loading sensors..</div>;
   let individualSensors = [];
   if (sensors) {
