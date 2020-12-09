@@ -5,7 +5,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import "../Floors.css";
 import { useAxiosGet } from "../../../Hooks/HttpRequest";
 import { useDispatch, useSelector } from "react-redux";
-import { SetFloor } from "../../../actions";
+import { SetFloor } from "../../../actions/";
 import SettingsIcon from "../../../Media/icons/SettingsIcon.svg";
 
 function DropDown(props) {
@@ -17,24 +17,24 @@ function DropDown(props) {
   const [dropDownValue, setdropDownValue] = useState("Loading");
   const [isLoading, setisLoading] = useState(true);
 
-  const UpdateFloor = (floorId) => {
-    dispatch(SetFloor(floorId));
+  const UpdateFloor = (floor) => {
+    dispatch(SetFloor(floor));
   };
 
   let floor = "loading";
   if (Floors.data) {
     if (isLoading == true) {
       setdropDownValue(Floors.data[0].name);
-      UpdateFloor(Floors.data[0].id);
+      UpdateFloor(Floors.data[0]);
       setisLoading(false);
     }
-    floor = Floors.data.map((item, key) => (
+    floor = Floors.data.map((item) => (
       <Dropdown.Item
         as="button"
         value={item.id}
         onClick={() => {
           setdropDownValue(item.name);
-          UpdateFloor(item.id);
+          UpdateFloor(item);
         }}
       >
         <div>{item.name}</div>
@@ -42,7 +42,7 @@ function DropDown(props) {
     ));
   }
   if (Floors.error) {
-    alert("Database is not responding, please try again later.");
+    // alert("Database is not responding, please try again later.");
   }
 
   return (
