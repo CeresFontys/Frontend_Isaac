@@ -16,7 +16,7 @@ function App() {
     return (
       <BrowserRouter>
         <Header />
-        {/* <Heatmap /> */}
+        <Heatmap />
         <Switch>
           <NotGuardedRoute
             path="/login"

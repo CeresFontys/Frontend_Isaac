@@ -4,8 +4,13 @@ import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "../Floors.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { SetFloor } from "../../../actions/";
 
 function AddFloor(props) {
+  const dispatch = useDispatch();
+  const currentFloor = useSelector((state: any) => state.floors);
   const [id, setId] = useState();
   const [image, setImage] = useState();
   const [name, setName] = useState();
@@ -13,16 +18,29 @@ function AddFloor(props) {
   const [length, setLength] = useState();
   const [submitMessage, setSubmitMessage] = useState(<div></div>);
 
+  useEffect(() => {
+    setName(currentFloor == null ? "" : currentFloor.name);
+    setLength(currentFloor == null ? "" : currentFloor.length);
+    setWidth(currentFloor == null ? "" : currentFloor.width);
+    setId(currentFloor == null ? "" : currentFloor.id);
+  }, [currentFloor]);
+  let floor = currentFloor;
+
   const handleSubmit = (event: any) => {
     event.preventDefault();
     var bodyFormData = new FormData();
+    bodyFormData.append("Floor.Id", id);
     bodyFormData.append("Floor.Name", name);
     bodyFormData.append("Floor.Length", length);
     bodyFormData.append("Floor.Width", width);
     bodyFormData.append("File", image);
+    floor.id = id;
+    floor.length = length;
+    floor.width = width;
+    floor.name = name;
     axios({
-      method: "post",
-      url: "http://localhost:5006/Floor",
+      method: "put",
+      url: "http://localhost:5006/Floor/" + id,
       data: bodyFormData,
       headers: { "Content-Type": "multipart/form-data" },
     })
@@ -30,23 +48,22 @@ function AddFloor(props) {
         console.log(res);
         console.log(res.data);
         setSubmitMessage(<div className="succes">Succes</div>);
+        dispatch(SetFloor(floor));
+        //ReloadFloors(res);
       })
       .catch((error) => {
         console.log(error.response);
+        console.log(error);
         setSubmitMessage(
           <div className="unsuccesfull">Unsuccesfull try again later</div>
         );
       });
   };
-  console.log(props.isVisible);
   return (
     <div className={props.isVisible ? "box boxOpen" : "box"}>
       <Form onSubmit={(e: any) => handleSubmit(e)}>
         <Form.Group className="filearea" controlId="formBasicImage">
-          <Form.File
-            required
-            onChange={(e: any) => setImage(e.target.files[0])}
-          />
+          <Form.File onChange={(e: any) => setImage(e.target.files[0])} />
         </Form.Group>
         <Form.Group controlId="formBasicName">
           <Form.Control
@@ -55,6 +72,7 @@ function AddFloor(props) {
             onChange={(e: any) => setName(e.target.value)}
             className="textarea"
             required
+            value={name}
           ></Form.Control>
         </Form.Group>
 
@@ -65,6 +83,7 @@ function AddFloor(props) {
             onChange={(e: any) => setLength(e.target.value)}
             className="textarea"
             required
+            value={length}
           ></Form.Control>
         </Form.Group>
 
@@ -75,13 +94,18 @@ function AddFloor(props) {
             onChange={(e: any) => setWidth(e.target.value)}
             className="textarea"
             required
+            value={width}
           ></Form.Control>
         </Form.Group>
         <div className="form-group">
-          {submitMessage}
-          <Button type="submit" className="btn btnpos">
+          <Button
+            type="submit"
+            className="btn btnpos"
+            onClick={(e) => props.onClick("test")}
+          >
             Save
           </Button>
+          {submitMessage}
         </div>
       </Form>
     </div>

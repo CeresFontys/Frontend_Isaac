@@ -44,13 +44,15 @@
 }
 
 .unsuccesfull {
-  padding-left: 300px;
+  float: right;
+  padding-right: 10px;
   padding-top: 8px;
   color: red;
 }
 
 .succes {
-  padding-left: 460px;
+  float: right;
+  padding-right: 10px;
   padding-top: 8px;
   color: green;
 }
