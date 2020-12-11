@@ -20,8 +20,8 @@ export const setGroups = (data) => {
 };
 
 export const SetFloor = (data) => {
-  return {
-    type: "SETFLOOR",
-    payload: data,
-  };
+    return {
+        type: "SETFLOOR",
+        payload: data,
+    };
 };
