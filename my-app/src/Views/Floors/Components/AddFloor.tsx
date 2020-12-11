@@ -6,8 +6,10 @@ import Form from "react-bootstrap/Form";
 import "../Floors.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { SetFloor } from "../../../actions/";
 
 function AddFloor(props) {
+  const dispatch = useDispatch();
   const currentFloor = useSelector((state: any) => state.floors);
   const [id, setId] = useState();
   const [image, setImage] = useState();
@@ -22,6 +24,7 @@ function AddFloor(props) {
     setWidth(currentFloor == null ? "" : currentFloor.width);
     setId(currentFloor == null ? "" : currentFloor.id);
   }, [currentFloor]);
+  let floor = currentFloor;
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -31,6 +34,10 @@ function AddFloor(props) {
     bodyFormData.append("Floor.Length", length);
     bodyFormData.append("Floor.Width", width);
     bodyFormData.append("File", image);
+    floor.id = id;
+    floor.length = length;
+    floor.width = width;
+    floor.name = name;
     axios({
       method: "put",
       url: "http://localhost:5006/Floor/" + id,
@@ -41,7 +48,7 @@ function AddFloor(props) {
         console.log(res);
         console.log(res.data);
         setSubmitMessage(<div className="succes">Succes</div>);
-        //dispatch(SetFloor());
+        dispatch(SetFloor(floor));
         //ReloadFloors(res);
       })
       .catch((error) => {
@@ -91,7 +98,11 @@ function AddFloor(props) {
           ></Form.Control>
         </Form.Group>
         <div className="form-group">
-          <Button type="submit" className="btn btnpos">
+          <Button
+            type="submit"
+            className="btn btnpos"
+            onClick={(e) => props.onClick("test")}
+          >
             Save
           </Button>
           {submitMessage}
