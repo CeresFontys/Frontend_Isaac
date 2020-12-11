@@ -11,9 +11,10 @@ export function useAxiosGet(url){
     useEffect(() => {
         setRequest({
             loading: true,
-            data: null,
+            data: false,
             error: false
         })
+       
         axios.get(url)
             .then(response => {
                 setRequest({
