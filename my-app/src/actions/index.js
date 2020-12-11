@@ -18,3 +18,10 @@ export const setGroups = (data) => {
     payload: data,
   };
 };
+
+export const SetFloor = (data) => {
+    return {
+        type: "SETFLOOR",
+        payload: data,
+    };
+};

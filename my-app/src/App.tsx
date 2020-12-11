@@ -38,7 +38,7 @@ function App() {
               isAuthenticated={localStorage.getItem("user")}
               component={AccessControlPage}
             />
-            <GuardedRoute
+            <NotGuardedRoute
               exact
               path="/errorlog"
               isAuthenticated={localStorage.getItem("user")}
