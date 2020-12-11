@@ -13,6 +13,7 @@ export function GetSensorDbData() {
     const sensors = useAxiosGet(urlSensors);
     const groups = useAxiosGet(urlGroups);
 
+    console.log(sensors)
     if (sensors.data && sensorsStoreData == null) {
         let sensorData = sensors.data;
         sensorData.forEach(element => {

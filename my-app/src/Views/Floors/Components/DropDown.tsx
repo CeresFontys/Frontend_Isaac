@@ -6,6 +6,7 @@ import "../Floors.css";
 import { useAxiosGet } from "../../../Hooks/HttpRequest";
 import { useDispatch, useSelector } from "react-redux";
 import { SetFloor } from "../../../actions/";
+
 import SettingsIcon from "../../../Media/icons/SettingsIcon.svg";
 
 function DropDown(props) {
@@ -49,9 +50,11 @@ function DropDown(props) {
       </Dropdown.Item>
     ));
   }
+
   if (Floors.error) {
     // alert("Database is not responding, please try again later.");
   }
+
 
   return (
     <div className="topRowDropdown">
