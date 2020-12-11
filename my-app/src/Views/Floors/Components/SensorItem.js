@@ -6,17 +6,19 @@ import {getTemperature, getHumidity, getTempStatusCollor,getHumStatusCollor} fro
 import { Draggable } from 'react-beautiful-dnd'
 
 export default class SensorItem extends Component {
+  
 
   render() {
     let temp = getTemperature(this.props.sensor.temperature)
     let hum = getHumidity(this.props.sensor.humidity)
       return (
-        <Draggable draggableId={this.props.sensor.name} index={this.props.index}> 
-        {provided =>(
+        <Draggable draggableId={this.props.sensor.id.toString()} index={this.props.sensor.uiIndex} > 
+        {(provided, snapshot)=>(
           <div className="sensorItem"
            {...provided.draggableProps}
            {...provided.dragHandleProps}
            ref={provided.innerRef}
+           isDragging={snapshot.isDragging}
           >
             <img src={SensorIcon}/>
             <span className="SensorName">{this.props.sensor.name}</span>

@@ -5,9 +5,10 @@ import Dropdown from "react-bootstrap/Dropdown";
 import "../Floors.css";
 import { useAxiosGet } from "../../../Hooks/HttpRequest";
 import { useDispatch, useSelector } from "react-redux";
-import { SetFloor } from "../../../actions";
+// import { SetFloor } from "../../../actions";
+import SettingsIcon from "../../../Media/icons/SettingsIcon.svg";
 
-function DropDown() {
+function DropDown(props) {
   const dispatch = useDispatch();
   const currentFloor = useSelector((state: any) => state.floors);
   const url = "http://localhost:5006/floor";
@@ -17,7 +18,7 @@ function DropDown() {
   const [isLoading, setisLoading] = useState(true);
 
   const UpdateFloor = (floorId) => {
-    dispatch(SetFloor(floorId));
+    // dispatch(SetFloor(floorId));
   };
 
   let floor = "loading";
@@ -40,16 +41,17 @@ function DropDown() {
       </Dropdown.Item>
     ));
   }
-  if (Floors.error) {
-    alert("Database is not responding, please try again later.");
-  }
+
   return (
-    <div>
-      <DropdownButton
-        id="dropdown-item-button"
-        title={dropDownValue}
-        className="dropdown"
-      >
+    <div className="topRowDropdown">
+      <img
+        className="sliderIcon"
+        onClick={() => {
+          props.onClick(!props.isVisible);
+        }}
+        src={SettingsIcon}
+      ></img>
+      <DropdownButton id="dropdown-item-button" title={dropDownValue}>
         {floor}
       </DropdownButton>
     </div>
