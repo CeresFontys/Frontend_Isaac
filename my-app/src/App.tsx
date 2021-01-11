@@ -37,6 +37,7 @@ function App() {
               path="/access-control"
               isAuthenticated={localStorage.getItem("user")}
               component={AccessControlPage}
+              id="AccessControlLink"
             />
             <NotGuardedRoute
               exact

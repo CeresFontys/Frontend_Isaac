@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6a2f690-5cfb-45d8-a407-7ba582c93dc6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/my-app/src/Media/icons/plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/cypress.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/cypress/fixtures/example.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/cypress/integration/AccessControlTests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/cypress/plugins/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/cypress/support/commands.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/cypress/support/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Views/AccessControl/AccessControl.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Views/AccessControl/AccessControl.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Views/AccessControl/AccessControl.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Views/AccessControl/AccessControl.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Views/AccessControl/Views/UserView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Views/AccessControl/Views/UserView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/Views/AccessControl/Views/WhiteListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Views/AccessControl/Views/WhiteListView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/App.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +56,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Kurza\RiderProjects\Project_Isaac_Frontend\my-app\cypress\integration" />
       <recent name="C:\Users\Kurza\RiderProjects\Project_Isaac_Frontend\my-app\src\Views" />
     </key>
   </component>
