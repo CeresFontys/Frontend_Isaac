@@ -14,17 +14,9 @@ function DropDown(props) {
   const currentFloor = useSelector((state: any) => state.floors);
   const url = "http://localhost:5006/floor";
   let Floors = useAxiosGet(url);
-  console.log("bihdsfgihdsbhjdsfbhjdfsbkj");
-  //let Floors = props.Floors;
 
   const [dropDownValue, setdropDownValue] = useState("Loading");
   const [isLoading, setisLoading] = useState(true);
-  const [test, setTest] = useState("");
-
-  useEffect(() => {
-    setTest("gyudwa");
-    console.log(test);
-  }, [props.value]);
 
   const UpdateFloor = (floor) => {
     dispatch(SetFloor(floor));
@@ -54,7 +46,6 @@ function DropDown(props) {
   if (Floors.error) {
     // alert("Database is not responding, please try again later.");
   }
-
 
   return (
     <div className="topRowDropdown">

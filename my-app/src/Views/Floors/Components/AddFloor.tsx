@@ -38,6 +38,7 @@ function AddFloor(props) {
     floor.length = length;
     floor.width = width;
     floor.name = name;
+    console.log(image);
     axios({
       method: "put",
       url: "http://localhost:5006/Floor/" + id,
@@ -49,7 +50,6 @@ function AddFloor(props) {
         console.log(res.data);
         setSubmitMessage(<div className="succes">Succes</div>);
         dispatch(SetFloor(floor));
-        //ReloadFloors(res);
       })
       .catch((error) => {
         console.log(error.response);
@@ -98,11 +98,7 @@ function AddFloor(props) {
           ></Form.Control>
         </Form.Group>
         <div className="form-group">
-          <Button
-            type="submit"
-            className="btn btnpos"
-            onClick={(e) => props.onClick("test")}
-          >
+          <Button type="submit" className="btn btnpos">
             Save
           </Button>
           {submitMessage}
