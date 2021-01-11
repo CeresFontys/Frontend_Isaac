@@ -11,11 +11,11 @@ import { SetFloor } from "../../../actions/";
 function AddFloor(props) {
   const dispatch = useDispatch();
   const currentFloor = useSelector((state: any) => state.floors);
-  const [id, setId] = useState();
-  const [image, setImage] = useState();
-  const [name, setName] = useState();
-  const [width, setWidth] = useState();
-  const [length, setLength] = useState();
+  const [id, setId] = useState("");
+  const [image, setImage] = useState("");
+  const [name, setName] = useState("");
+  const [width, setWidth] = useState("");
+  const [length, setLength] = useState("");
   const [submitMessage, setSubmitMessage] = useState(<div></div>);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function AddFloor(props) {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     var bodyFormData = new FormData();
-    bodyFormData.append("Floor.Id", id);
+    bodyFormData.append("Floor.Id", "0");
     bodyFormData.append("Floor.Name", name);
     bodyFormData.append("Floor.Length", length);
     bodyFormData.append("Floor.Width", width);
@@ -38,7 +38,6 @@ function AddFloor(props) {
     floor.length = length;
     floor.width = width;
     floor.name = name;
-    console.log(image);
     axios({
       method: "put",
       url: "http://localhost:5006/Floor/" + id,
