@@ -6,99 +6,26 @@
     cursor: pointer;
 }
 
-.ipOptionsIcon {
+img.ipOptionsIcon {
+    width: 20px;
+    right: 0;
     float: right;
     margin-right: 10px;
     cursor: pointer;
-    /* feather-icon / trash-2 */
-
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    left: calc(50% - 24px/2 + 838px);
-    top: calc(50% - 24px/2 + 97px);
-
-
-
-    /* Shape */
-
-    position: absolute;
-    left: 12.5%;
-    right: 12.5%;
-    top: 25%;
-    bottom: 70.83%;
-
-    border: 2px solid #C4C4C4;
-
-
-    /* Shape */
-
-    position: absolute;
-    left: 20.83%;
-    right: 20.83%;
-    top: 8.33%;
-    bottom: 8.33%;
-
-    border: 2px solid #C4C4C4;
-
-
-    /* Path */
-
-    position: absolute;
-    left: 20.83%;
-    right: 20.83%;
-    top: 25%;
-    bottom: 8.33%;
-
-    background: #DADADA;
-
-
-    /* Path */
-
-    position: absolute;
-    left: 33.33%;
-    right: 33.33%;
-    top: 8.33%;
-    bottom: 75%;
-
-    background: #DADADA;
-
-
-    /* Shape */
-
-    position: absolute;
-    left: 41.67%;
-    right: 54.17%;
-    top: 45.83%;
-    bottom: 29.17%;
-
-    border: 2px solid #C4C4C4;
-
-
-    /* Shape */
-
-    position: absolute;
-    left: 58.33%;
-    right: 37.5%;
-    top: 45.83%;
-    bottom: 29.17%;
-
-    border: 2px solid #C4C4C4;
-
-
-    /* Size */
-
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
-
-
 }
 
-.ipName{
+
+
+.ipName {
     float: left;
+}
+
+.AccessUsersTitle{
+    padding: 5px
+}
+
+.AccessIpTitle{
+    padding: 5px
 }
 
 .ipIp {
@@ -117,3 +44,27 @@
     clear: both;
 }
 
+.AccessIpHeader{
+    clear: both;
+}
+.AccessIpTitle{
+    float: left;
+}
+.AccessIpAdd{
+    width: 40px;
+    float: right;
+    cursor: pointer;
+}
+
+
+.AccessUserHeader{
+    clear: both;
+}
+.AccessUserTitle{
+    float: left;
+}
+.AccessUserAdd{
+    width: 40px;
+    float: right;
+    cursor: pointer;
+}

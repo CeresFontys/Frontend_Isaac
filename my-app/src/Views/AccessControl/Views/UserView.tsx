@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import {User} from "../Models/User";
-import SensorOptionsIcon from "../../../Media/icons/moreDots.png";
 import {Whitelist} from "../Models/Whitelist";
 import {AccessControlPage} from "../AccessControl";
+import ThrashCanIcon from "../../../Media/icons/trash.png";
 
 export class UserView extends Component {
     props: {
@@ -20,7 +20,7 @@ export class UserView extends Component {
             <div className="userListItem">
                 <span className="userName">{this.props.user.name}</span>
                 {admin}
-                <img className="userOptionsIcon" src={SensorOptionsIcon} onClick={(event)=>{this.props.removeAction(this.props.page, this.props.user)}}/>
+                <img className="userOptionsIcon" src={ThrashCanIcon} onClick={(event)=>{this.props.removeAction(this.props.page, this.props.user)}}/>
             </div>
         );
     }
