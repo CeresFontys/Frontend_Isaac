@@ -1,4 +1,4 @@
-const sensorDataReducer = (state =null, action) =>{
+export default function sensorDataReducer(state =null, action){
     switch(action.type){
         case "SETSENSORS":
             return state = action.payload;
@@ -20,4 +20,12 @@ const sensorDataReducer = (state =null, action) =>{
             return state;
     }
 }
-export default sensorDataReducer;
+
+export function SelectedSensorReducer(state = null, action){
+    switch (action.type) {
+      case "SETSELECTEDSENSOR":
+        return (state = action.payload);
+      default:
+        return state;
+    }
+  };

@@ -5,9 +5,9 @@ import "./SensorList.css";
 import {
   getTemperature,
   getHumidity,
-  getTempStatusCollor,
-  getHumStatusCollor,
-} from "./../Utils/SensorHelpers";
+  getTempStatuscolor,
+  getHumStatuscolor,
+} from "../../../Utils/SensorHelpers";
 import SensorOptionsIcon from "../../../Media/icons/moreDots.png";
 import SensorChevron from "../../../Media/icons/chevron.png";
 import SensorGroupIconAlt from "../../../Media/icons/group-alt.png";
@@ -52,10 +52,10 @@ export default class SensorGroup extends Component {
         <section className="GroupHeader">
           <img className="GroupIcon" src={SensorGroupIconAlt} alt="" />
           <span className="SensorName">{this.props.group.name}</span>
-          <span className={getTempStatusCollor(groupdata.temp)}>
+          <span className={`SensorTemp ${getTempStatuscolor(groupdata.temp)}`}>
             {getTemperature(groupdata.temp)}°
           </span>
-          <span className={getHumStatusCollor(groupdata.hum)}>
+          <span className={`SensorHum ${getHumStatuscolor(groupdata.hum)}`}>
             {getHumidity(groupdata.hum)}%
           </span>
           <div className="headerIcons">

@@ -55,3 +55,16 @@ body, html{
     top: 0;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
 }
+
+.color-green {
+	color: #44de1e;
+  }
+  .color-yellow {
+	color: #dade1e;
+  }
+  .color-red {
+	color: #de3636;
+  }
+  .color-blue {
+	color: #36b6de;
+  }
