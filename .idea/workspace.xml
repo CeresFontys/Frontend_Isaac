@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6a2f690-5cfb-45d8-a407-7ba582c93dc6" name="Default Changelist" comment="">
+
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/Views/ErrorLog/ErrorLog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Views/ErrorLog/ErrorLog.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/my-app/cypress.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/my-app/cypress/fixtures/example.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/my-app/cypress/integration/AccessControlTests.js" afterDir="false" />
@@ -12,6 +15,7 @@
       <change beforePath="$PROJECT_DIR$/my-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/App.tsx" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,12 +74,24 @@
       <updated>1607522194445</updated>
       <workItem from="1607522195501" duration="4772000" />
       <workItem from="1607678885516" duration="11000" />
+      <workItem from="1607690126853" duration="2651000" />
+      <workItem from="1607935484115" duration="3434000" />
+      <workItem from="1608123013822" duration="600000" />
+      <workItem from="1609686836381" duration="21000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+
+  <component name="WindowStateProjectService">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1609686854296">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609686854296" />
+ 
+
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -89,6 +105,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+
   </component>
 </project>
