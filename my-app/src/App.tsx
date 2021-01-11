@@ -32,11 +32,12 @@ function App() {
               isAuthenticated={localStorage.getItem("user")}
               component={FloorsPage}
             />
-            <GuardedRoute
+            <NotGuardedRoute
               exact
               path="/access-control"
               isAuthenticated={localStorage.getItem("user")}
               component={AccessControlPage}
+              id="AccessControlLink"
             />
             <NotGuardedRoute
               exact
