@@ -90,8 +90,11 @@ user-select: none;
     width: 100%;
 }
 
+
 #SensorListContainer h2 {
   display: inline-block;
+    color: #6C7C7C;
+    font-size: 30px;
 }
 .SensorName {
   color: #6c7c7c;
@@ -117,4 +120,116 @@ user-select: none;
   font-size: 8px;
   position: absolute;
   margin-left: 5px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #e6dada; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b9b5b5; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: gray; 
+}
+
+.AddGroupBtn{
+  float: right;
+  color: #6C7C7C;
+  font-size: 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 0 2px;
+}
+
+
+.SensorListContainer{
+  overflow-y: scroll;
+  max-height: 55vh;
+  padding-right: 10px;
+  margin-right: 0;
+  box-sizing: unset;
+  width: 100%;
+}
+.btnCLoseAddGroupForm{
+  transform: rotate(45deg);
+    display: inline-block;
+    float: right;
+    font-size: 31px;
+    color: #e82e2e;
+    opacity: 0.5;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    cursor: pointer;
+}
+.btnCLoseAddGroupForm:hover{
+  opacity:1;
+}
+.AddGroupForm{
+  background: #f8f8f8;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.SGFormHolder > div{
+  transition: height 0.3s;
+}
+.AddGroupForm p{
+  margin-bottom: 5px;
+}
+.AddGroupForm input{
+  background: #ebebeb;
+    border-radius: 5px;
+    height: 37px;
+    width: 100%;
+    border: 1px solid #d0d0d0;
+    outline: 0;
+    padding: 0 10px;
+}
+.AddGroupForm input::placeholder{
+  opacity: 0.6;
+}
+.SendFormBtnHolder{
+  display: flex;
+  justify-content: flex-end;
+}
+.SendFormBtnHolder span{
+    background: #009DDC;
+    padding: 8px 13px;
+    border-radius: 5px;
+    border: unset;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.884);
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+.SendFormBtnHolder span:hover{
+  background: #0f89b9;
+  color: white;
+}
+.SGFormHolder .false{
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.SGFormHolder .true{
+  height: 136px;
+  margin-bottom: 10px;
 }

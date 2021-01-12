@@ -12,7 +12,8 @@ function Heatmap (){
     if(sensors){
         avgTemp = sensors.reduce((a, b) => +a + +b.temperature, 0) / sensors.length;
         avgHum = sensors.reduce((a, b) => +a + +b.humidity, 0) / sensors.length;
-
+        avgTemp = parseFloat(avgTemp).toFixed(2);
+        avgHum = parseFloat(avgHum).toFixed(2);
     }
     return( 
       
