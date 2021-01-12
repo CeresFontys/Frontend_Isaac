@@ -6,6 +6,9 @@
     width: 100%;
     justify-content: center;
     right: 0;
+    position: fixed;
+    z-index: 10;
+    width: 600px;
 }
 #Links{
     display: flex;

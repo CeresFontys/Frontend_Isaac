@@ -66,6 +66,7 @@
 .sliderIcon {
   position: absolute;
   right: 0;
+  cursor: pointer;
 }
 
 .contentContainer {
@@ -73,4 +74,5 @@
   left: 0;
   right: 0;
   margin: auto;
+  margin-top: 90px;
 }
