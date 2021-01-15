@@ -26,6 +26,30 @@ function AddFloor(props) {
   }, [currentFloor]);
   let floor = currentFloor;
 
+  const handleClick = (event: any) => {
+    if (window.confirm("Are you sure you want to delete this floor?")) {
+      axios({
+        method: "delete",
+        url: "http://localhost:5006/Floor/" + id,
+      })
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+          setSubmitMessage(<div className="succesfulDelete">Succes</div>);
+          dispatch(SetFloor(floor));
+        })
+        .catch((error) => {
+          console.log(error.response);
+          console.log(error);
+          setSubmitMessage(
+            <div className="unsuccesfullDelete">
+              Unsuccesfull try again later
+            </div>
+          );
+        });
+    }
+  };
+
   const handleSubmit = (event: any) => {
     event.preventDefault();
     var bodyFormData = new FormData();
@@ -101,6 +125,9 @@ function AddFloor(props) {
             Save
           </Button>
           {submitMessage}
+          <Button onClick={(e: any) => handleClick(e)} className="btn color">
+            Delete floor
+          </Button>
         </div>
       </Form>
     </div>

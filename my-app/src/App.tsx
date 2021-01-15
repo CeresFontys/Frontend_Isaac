@@ -11,6 +11,7 @@ import Heatmap from "./Views/Heatmap/Heatmap";
 import NotGuardedRoute from "./Routes/NotGuardedRoute";
 import FloorsPage from "./Views/Floors/Floors";
 import GuardedRoute from "./Routes/GuardedRoute";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             isAuthenticated={localStorage.getItem("user")}
             component={ErrorLogPage}
           />
+          <Footer />
         </div>
       </Switch>
     </BrowserRouter>

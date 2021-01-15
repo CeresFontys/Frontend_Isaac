@@ -45,19 +45,17 @@ function DropDown(props) {
     ));
   }
 
-  if (Floors.error) {
-    // alert("Database is not responding, please try again later.");
-  }
-
   return (
     <div className="topRowDropdown">
-      <img
-        className="sliderIcon"
-        onClick={() => {
-          props.onClick(!props.isVisible);
-        }}
-        src={SettingsIcon}
-      ></img>
+      {!isLoading && (
+        <img
+          className="sliderIcon"
+          onClick={() => {
+            props.onClick(!props.isVisible);
+          }}
+          src={SettingsIcon}
+        ></img>
+      )}
       <DropdownButton id="dropdown-item-button" title={dropDownValue}>
         {floor}
       </DropdownButton>
