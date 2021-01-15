@@ -58,7 +58,6 @@ function HeatmapCanvas() {
 
   const updateCanvasDimensions = () => {
     setHeatmapImgWidth({width:heatmapImgRef.current.width, height:heatmapImgRef.current.height})
-    console.log(heatmapImgRef.current.width);
     const canvas = canvasRef.current;
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;

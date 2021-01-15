@@ -1,5 +1,5 @@
 /* eslint-disable eqeqeq */
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import SensorItem from "./SensorItem";
 import "./SensorList.css";
 import {
@@ -14,44 +14,42 @@ import SensorGroupIconAlt from "../../../Media/icons/group-alt.png";
 import { Droppable } from "react-beautiful-dnd";
 import { useDispatch } from "react-redux";
 import { updateUiIndex } from "../../../actions";
+import GroupOptionsDropdown from '../Components/GroupOptionsDropdown'
+import $ from 'jquery';
 
-export default class SensorGroup extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      groupOpen: false,
-    };
-  }
+export default function SensorGroup(props) {
+  const [groupOpen, setGroupOpen] = useState(false);
+  const [optionForm, SetOptionForm] = useState(false);
 
-  getGroupData() {
+  const getGroupData =() =>{
     let GroupData = { temp: null, hum: null };
-    this.props.sensors.forEach((s) => {
-      if (GroupData.temp != null && s.temperature != null) {
-        GroupData.temp = (GroupData.temp + s.temperature) / 2;
-      }
-      if (GroupData.hum != null && s.humidity != null) {
-        GroupData.hum = (GroupData.hum + s.humidity) / 2;
-      }
-      if (GroupData.temp == null) {
-        GroupData.temp = s.temperature;
-      }
-      if (GroupData.hum == null) {
-        GroupData.hum = s.humidity;
-      }
-    });
-    return GroupData;
+      props.sensors.forEach((s) => {
+        let sensorTemp = parseFloat(s.temperature);
+        let sensorHum = parseFloat(s.humidity);
+        if (GroupData.temp != null && sensorTemp != null) {
+          GroupData.temp = (GroupData.temp + sensorTemp) / 2;
+        } if (GroupData.hum != null && sensorHum != null) {
+          GroupData.hum = (GroupData.hum + sensorHum) / 2;
+        }if (GroupData.temp == null) {
+          GroupData.temp = sensorTemp;
+        } if (GroupData.hum == null) {
+          GroupData.hum = sensorHum;
+        }
+      });
+      return GroupData;
   }
-  render() {
-    let groupdata = this.getGroupData();
+
+
+    let groupdata = getGroupData();
     return (
       <div
         className={
-          this.state.groupOpen ? "SensorGroup group-open" : "SensorGroup"
+         groupOpen ? "SensorGroup group-open" : "SensorGroup"
         }
       >
         <section className="GroupHeader">
           <img className="GroupIcon" src={SensorGroupIconAlt} alt="" />
-          <span className="SensorName">{this.props.group.name}</span>
+          <span className="SensorName">{props.group.name}</span>
           <span className={`SensorTemp ${getTempStatuscolor(groupdata.temp)}`}>
             {getTemperature(groupdata.temp)}°
           </span>
@@ -59,37 +57,39 @@ export default class SensorGroup extends Component {
             {getHumidity(groupdata.hum)}%
           </span>
           <div className="headerIcons">
-            <img src={SensorOptionsIcon} alt="" />
+          <div className="sensorOptionsHolder">
+            <img className="sensorOptionsIcon PD" src={SensorOptionsIcon} onClick={() => SetOptionForm(!optionForm)}/>
+             <GroupOptionsDropdown sensor={props.sensor} active={optionForm} setActive={(value) => SetOptionForm(value)} />
+            
             <img
               className={
-                this.state.groupOpen ? "chevron-down flip" : "chevron-down"
+                groupOpen ? "chevron-down flip" : "chevron-down"
               }
               src={SensorChevron}
               onClick={(e) =>{
-                this.setState({ groupOpen: !this.state.groupOpen });
-                var hideGroupsAfterAnimation;
-                var hideGroupList = e.currentTarget.parentElement.parentElement.parentElement.querySelector(".groupList");
+                setGroupOpen(!groupOpen);
+                var hideGroupList = e.currentTarget.parentElement.parentElement.parentElement.parentElement.querySelector(".groupList");
                 if(hideGroupList.classList.contains("groupList-hidden")){
-                  hideGroupList.classList.remove("groupList-hidden")
-                  clearTimeout(hideGroupsAfterAnimation);
-                }else{
-                  clearTimeout(hideGroupsAfterAnimation);
-                  hideGroupsAfterAnimation = setTimeout(()=>{hideGroupList.classList.add("groupList-hidden")},1000);
+                  $(hideGroupList).slideDown("fast");;
+                }else{              
+                  $(hideGroupList).slideUp("fast");
+                  $(hideGroupList).toggle().css("display","none !important");
                 }
               }
-              }
-              alt=""
-            />
+            }
+            alt=""
+          />
           </div>
-        </section>
-        <Droppable droppableId={this.props.group.id.toString()} isDragDisabled>
-          {(provided) => (
-            <section
-              className="groupList groupList-hidden"
-              ref={provided.innerRef}
-              {...provided.droppableProps}
-            >
-              {this.props.sensors.map((sensor, i) => {
+        </div>
+      </section>
+      <Droppable droppableId={props.group.id.toString()} isDragDisabled>
+        {(provided) => (
+          <section
+            className="groupList groupList-hidden"
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+          >
+            {props.sensors.map((sensor, i) => {
                 
                 return (
                   <SensorItem
@@ -101,8 +101,8 @@ export default class SensorGroup extends Component {
               {provided.placeholder}
             </section>
           )}
-        </Droppable>
+           </Droppable>
       </div>
     );
-  }
 }
+

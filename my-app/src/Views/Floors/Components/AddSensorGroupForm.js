@@ -7,14 +7,14 @@ import {setGroups} from '../../../actions'
 function AddSensorGroupForm(props) {
     const dispatch = useDispatch();
     const floor = useSelector((state) => state.floors)
-    const [groupName, setGroupName] = useState(null);
+    const [groupName, setGroupName] = useState("");
     const [errorMsg, setErrorMsg] = useState(<></>)
     const groupsStoreData = useSelector(state => state.groups);
   
-    console.log(groupsStoreData);
     const handleFormSubmit = () =>{
-        if(floor ==null || groupName == null ){
+        if(floor ==null || groupName == "" ){
             setErrorMsg(<pre className="SGFormErrorMsg">Couldnt add group make sure sensorgroup name is filled in</pre>);
+            return;
         }
 
        const newGroup = {
@@ -28,7 +28,6 @@ function AddSensorGroupForm(props) {
         headers: { "Content-Type": "application/json" },
       })
         .then((res) => {
-          console.log(res.data)
           
         //  let groupList = groupsStoreData;
         //  groupList.push(res.data)

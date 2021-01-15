@@ -13,17 +13,15 @@ export function GetSensorDbData() {
     const sensors = useAxiosGet(urlSensors);
     const groups = useAxiosGet(urlGroups);
 
-    console.log(sensors)
     if (sensors.data && sensorsStoreData == null) {
         let sensorData = sensors.data;
         sensorData.forEach(element => {
-            element.temperature = "?";
-            element.humidity = "?";
+            element.temperature = "";
+            element.humidity = "";
         });
         dispatch(setSensors(sensorData));       
     }
     if (groups.data && groupsStoreData == null) {
-        dispatch(setGroups(groups.data)); 
-        console.log(groupsStoreData);      
+        dispatch(setGroups(groups.data));      
     }
 }

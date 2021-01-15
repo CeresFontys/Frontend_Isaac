@@ -28,7 +28,6 @@ export function SensorMqttData(sensorList) {
       });
     });
     mqttClient.on("message", (topic, payload, packet) => {
-      console.log(topic);
       var updateSensor = {
         floor: getTextBetween(topic, "/", 1, 2),
         x: getTextBetween(topic, "/", 2, 3),
@@ -61,12 +60,16 @@ export function SensorMqttData(sensorList) {
       ) {
         switch (updatedSensor.type) {
           case "humidity":
-            return (sensor.humidity = updatedSensor.value);
+            sensor.humidity = updatedSensor.value;
+            break;
           case "temperature":
-            return (sensor.temperature = updatedSensor.value);
+             sensor.temperature = updatedSensor.value;
+            break;
           default:
-            return;
+            break;
         }
+      }else{
+        // Add sensor to database
       }
     });
     dispatch(setSensors(updatedSensorData));

@@ -20,7 +20,7 @@ function SensorList() {
   const [groupFormActive, setGroupFormActive] = useState(false)
   GetSensorDbData();
   SensorMqttData(); 
-  RandomizeData();
+  // RandomizeData();
   
   let sensorGroups = <div>Loading sensors..</div>;
   let individualSensors = [];
@@ -67,7 +67,6 @@ function SensorList() {
     });
 
     let destGroupId = destination.droppableId == "MainDropCont" ? null : parseInt(destination.droppableId);
-    console.log(DraggedSensor[0]);
     const relationObj = {id: DraggedSensor[0].id, groupId: destGroupId};
 
     const relationObjJson = {
@@ -85,7 +84,6 @@ function SensorList() {
       headers: { "Content-Type": "application/json" },
     })
       .then((res) => {
-        console.log(res)
       })
       .catch((error) => {
         console.log(error.response);
