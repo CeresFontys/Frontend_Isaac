@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import {User} from "../Models/User";
-import {Whitelist} from "../Models/Whitelist";
 import {AccessControlPage} from "../AccessControl";
-import ThrashCanIcon from "../../../Media/icons/trash.png";
+import SensorOptionsIcon from "../../../Media/icons/moreDots.png";
+import UserOptionsDropdown from "../Dropdowns/UserOptionsDropdown";
 
 export class UserView extends Component {
     props: {
@@ -10,6 +10,14 @@ export class UserView extends Component {
         page: AccessControlPage,
         removeAction: (page: AccessControlPage, user: User) => void
     }
+    state:{
+        optionForm: boolean;
+    }
+    constructor(props, context) {
+        super(props, context)
+        this.state = {optionForm: false}
+    }
+
     render() {
         let admin = null;
         if(this.props.user.roles.some((role) => role=="admin")){
@@ -20,7 +28,10 @@ export class UserView extends Component {
             <div className="userListItem">
                 <span className="userName">{this.props.user.name}</span>
                 {admin}
-                <img className="userOptionsIcon" src={ThrashCanIcon} onClick={(event)=>{this.props.removeAction(this.props.page, this.props.user)}}/>
+                <div className="sensorOptionsHolder">
+                    <img className="sensorOptionsIcon PD" src={SensorOptionsIcon} onClick={() => this.setState({optionForm: !this.state.optionForm})}/>
+                    <UserOptionsDropdown user={this.props.user} active={this.state.optionForm} setActive={(value) => this.setState({optionForm: value})} />
+                </div>
             </div>
         );
     }

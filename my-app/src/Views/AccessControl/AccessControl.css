@@ -1,16 +1,15 @@
 .userOptionsIcon {
+    align-self: end;
     width: 20px;
     right: 0;
-    float: right;
-    margin-right: 10px;
+    margin-left: auto;
     cursor: pointer;
 }
 
 img.ipOptionsIcon {
     width: 20px;
-    right: 0;
-    float: right;
-    margin-right: 10px;
+    align-self: end;
+    margin-left: auto;
     cursor: pointer;
 }
 
@@ -32,13 +31,39 @@ img.ipOptionsIcon {
 }
 
 .ipListItem {
-    padding: 5px;
     clear: both;
+    background: #F8F8F8;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.13);
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none;
+    outline: none;
 }
 
 .userListItem{
-    padding: 5px;
     clear: both;
+    background: #F8F8F8;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.13);
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none;
+    outline: none;
 }
 
 .AccessIpHeader{
