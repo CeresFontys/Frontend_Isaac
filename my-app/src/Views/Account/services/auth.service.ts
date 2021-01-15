@@ -5,7 +5,7 @@ import { User } from "../models/User";
 const API_URL = "http://localhost:5008/api/auth/";
 
 class AuthService {
-  login(email: string, password: string) {
+  login(email: string, password: string, callback: (Boolean)=> any) {
     return axios
       .post(API_URL + "Login", {
         email,
@@ -15,6 +15,7 @@ class AuthService {
         if (response.data) {
           localStorage.setItem("user", JSON.stringify(response.data));
           console.log(response.data);
+          callback(true);
           return response.data;
         }
       });
