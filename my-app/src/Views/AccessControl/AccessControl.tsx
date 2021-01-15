@@ -94,7 +94,7 @@ export class AccessControlPage extends React.Component<IProps, IState> {
 
 	handleWhitelistSubmit(event){
 		event.preventDefault();
-		this.addWhitelist(this, {name: this.state.whitelistFormData.name, ip: this.state.whitelistFormData.ip, id: BigInt(1)})
+		this.addWhitelist(this, {name: this.state.whitelistFormData.name, ip: this.state.whitelistFormData.ip, id: 1})
 	}
 
 	userDropdownForm(){
@@ -139,7 +139,7 @@ export class AccessControlPage extends React.Component<IProps, IState> {
 	}
 	handleUserSubmit(event){
 		event.preventDefault();
-		this.addUser(this, new User(BigInt(1), this.state.userFormData.name, this.state.userFormData.email))
+		this.addUser(this, new User(1, this.state.userFormData.name, this.state.userFormData.email))
 	}
 
 	removeWhitelist(page: AccessControlPage, whitelist: Whitelist){

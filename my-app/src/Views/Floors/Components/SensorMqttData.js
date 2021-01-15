@@ -12,7 +12,7 @@ export function SensorMqttData(sensorList) {
   const sensorsStoreData = useSelector((state) => state.sensors);
 
   useEffect(() => {
-    const topic = "sensordata/#";
+    const topic = "frontend/#";
     // eslint-disable-next-line react-hooks/exhaustive-deps
     mqttClient = mqtt.connect("wss://server.kurza.nl:8081", {
       protocol: "wss",

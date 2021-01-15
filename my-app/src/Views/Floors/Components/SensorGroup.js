@@ -16,6 +16,7 @@ import { useDispatch } from "react-redux";
 import { updateUiIndex } from "../../../actions";
 import GroupOptionsDropdown from '../Components/GroupOptionsDropdown'
 import $ from 'jquery';
+import { group } from "console";
 
 export default function SensorGroup(props) {
   const [groupOpen, setGroupOpen] = useState(false);
@@ -44,7 +45,7 @@ export default function SensorGroup(props) {
     return (
       <div
         className={
-         groupOpen ? "SensorGroup group-open" : "SensorGroup"
+         groupOpen ? "SensorGroup group-open" : "SensorGroup group-closed"
         }
       >
         <section className="GroupHeader">
@@ -67,14 +68,10 @@ export default function SensorGroup(props) {
               }
               src={SensorChevron}
               onClick={(e) =>{
-                setGroupOpen(!groupOpen);
                 var hideGroupList = e.currentTarget.parentElement.parentElement.parentElement.parentElement.querySelector(".groupList");
-                if(hideGroupList.classList.contains("groupList-hidden")){
-                  $(hideGroupList).slideDown("fast");;
-                }else{              
-                  $(hideGroupList).slideUp("fast");
-                  $(hideGroupList).toggle().css("display","none !important");
-                }
+                console.log(hideGroupList);
+                setGroupOpen(!groupOpen);    
+                
               }
             }
             alt=""
