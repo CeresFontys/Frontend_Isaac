@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import "./Heatmap.css";
 import { useAxiosGet } from "../../Hooks/HttpRequest";
 import HeatmapCanvas from "./Components/HeatmapCanvas";
@@ -9,12 +9,23 @@ function Heatmap (){
     const sensors = useSelector((state) => state.sensors);
     let avgTemp = 20;
     let avgHum = 20;
-    if(sensors){
-        avgTemp = sensors.reduce((a, b) => +a + +b.temperature, 0) / sensors.length;
-        avgHum = sensors.reduce((a, b) => +a + +b.humidity, 0) / sensors.length;
-        avgTemp = parseFloat(avgTemp).toFixed(2);
-        avgHum = parseFloat(avgHum).toFixed(2);
-    }
+    const [avgStats, setAvgStats] = useState(null);
+
+    useEffect(()=>{
+        if(sensors){
+            setAvgStats(sensors.map((s, i) =>{
+                console.log(s);
+                console.log(s.name);
+                console.log(s.temperature);
+                return {temp:s.temperature, hum:s.humidity};
+            }));  
+           
+            avgTemp = parseFloat(avgTemp).toFixed(2);
+            avgHum = parseFloat(avgHum).toFixed(2);
+            console.log(avgStats);
+        }
+    },sensors)
+    
     return( 
       
        <div id="heatmapContainer">

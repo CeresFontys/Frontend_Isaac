@@ -1,0 +1,71 @@
+.userOptionsIcon {
+    width: 20px;
+    right: 0;
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+    filter: invert(65%) sepia(8%) saturate(6864%) hue-rotate(317deg) brightness(95%) contrast(89%);
+}
+
+img.ipOptionsIcon {
+    width: 20px;
+    right: 0;
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+    filter: invert(65%) sepia(8%) saturate(6864%) hue-rotate(317deg) brightness(95%) contrast(89%);
+}
+
+
+.ipName {
+    float: left;
+}
+
+.AccessUsersTitle{
+    padding: 5px
+}
+
+.AccessIpTitle{
+    padding: 5px
+}
+
+.ipIp {
+    margin-left: 15px;
+    float: left;
+}
+
+.ipListItem {
+    padding: 5px;
+    clear: both;
+
+}
+
+.userListItem{
+    padding: 5px;
+    clear: both;
+}
+
+.AccessIpHeader{
+    clear: both;
+}
+.AccessIpTitle{
+    float: left;
+}
+.AccessIpAdd{
+    width: 40px;
+    float: right;
+    cursor: pointer;
+}
+
+
+.AccessUserHeader{
+    clear: both;
+}
+.AccessUserTitle{
+    float: left;
+}
+.AccessUserAdd{
+    width: 40px;
+    float: right;
+    cursor: pointer;
+}
