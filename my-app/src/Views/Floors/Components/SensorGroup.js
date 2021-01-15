@@ -44,7 +44,7 @@ export default function SensorGroup(props) {
     return (
       <div
         className={
-         groupOpen ? "SensorGroup group-open" : "SensorGroup"
+         groupOpen ? "SensorGroup group-open" : "SensorGroup group-closed"
         }
       >
         <section className="GroupHeader">
@@ -67,16 +67,11 @@ export default function SensorGroup(props) {
               }
               src={SensorChevron}
               onClick={(e) =>{
-                setGroupOpen(!groupOpen);
-                var hideGroupList = e.currentTarget.parentElement.parentElement.parentElement.parentElement.querySelector(".groupList");
-                if(hideGroupList.classList.contains("groupList-hidden")){
-                  $(hideGroupList).slideDown("fast");;
-                }else{              
-                  $(hideGroupList).slideUp("fast");
-                  $(hideGroupList).toggle().css("display","none !important");
-                }
-              }
-            }
+                setGroupOpen(!groupOpen)
+                 var hideGroupList = $(e.currentTarget).parents(".SensorGroup").children(".groupList");            
+                $(hideGroupList).slideToggle("fast", "swing");
+              }}
+
             alt=""
           />
           </div>

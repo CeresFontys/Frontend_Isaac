@@ -5,6 +5,10 @@ import * as signalR from "@microsoft/signalr";
 import {useAxiosGet} from "../../Hooks/HttpRequest";
 import {HubConnectionBuilder} from "@microsoft/signalr";
 import {forEach} from "react-bootstrap/ElementChildren";
+import Header from "../../Components/Header";
+import Heatmap from "../Heatmap/Heatmap";
+import Navigation from "../../Components/Navigation";
+import Footer from "../../Components/Footer";
 
 
 
@@ -69,7 +73,18 @@ function ErrorLogPage(){
 
 	// const errorUrl = "http://localhost:5004/sensorerror";
 
-	return(<div>{content} Hoi</div>)
+	return(<>
+	<Header />
+    <Heatmap />
+    <div id="SideBar">
+      <Navigation />
+	  <div className="contentContainer">
+	<div>{content} Hoi</div>
+	</div>
+	<Footer />
+	</div>
+	</>
+		)
 }
 
 

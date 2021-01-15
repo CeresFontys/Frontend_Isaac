@@ -6,6 +6,7 @@ import Card from "react-bootstrap/Card";
 import Logo from "../../Media/images/isaac-primary-logo-rgb-transparent-250px.png";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./login.component.css";
+import { Redirect } from "react-router-dom";
 
 interface Props {}
 
@@ -13,6 +14,7 @@ export default class Login extends React.Component {
 	state = {
 		email: "",
 		password: "",
+		redirect:false
 	};
 	handleEmail = (event: any) => {
 		this.setState({
@@ -32,8 +34,10 @@ export default class Login extends React.Component {
 			email: this.state.email,
 			password: this.state.password,
 		};
-		authService.login(user.email, user.password);
+		authService.login(user.email, user.password, (response)=> response?window.location.reload():null);
+		
 	};
+
 
 	render() {
 		return (
@@ -42,7 +46,7 @@ export default class Login extends React.Component {
 					<Card.Img className="LoginFormLogo" src={Logo}></Card.Img>
 					<Card.Header style={{ backgroundColor: "white" }}>
 						<h1>Login</h1> <br />
-						<span>Login to acces the ISAAC heatmap</span>
+						<span>Login to access the ISAAC heatmap</span>
 						<br />
 						<span>
 							Did you <a href="/login"> Forget your password?</a>
