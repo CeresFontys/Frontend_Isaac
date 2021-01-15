@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Floor 1",
+    "length": 14,
+    "width": 32
+  },
+  {
+    "id": 2,
+    "name": "Floor 2",
+    "length": 16,
+    "width": 34
+  }
+]

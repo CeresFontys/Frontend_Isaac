@@ -12,7 +12,7 @@ import SettingsIcon from "../../../Media/icons/SettingsIcon.svg";
 function DropDown(props) {
   const dispatch = useDispatch();
   const currentFloor = useSelector((state: any) => state.floors);
-  const url = "http://localhost:5006/floor";
+  const url = "http://localhost:5006/Floor/";
   let Floors = useAxiosGet(url);
 
   const [dropDownValue, setdropDownValue] = useState("Loading");
@@ -28,7 +28,9 @@ function DropDown(props) {
       setdropDownValue(Floors.data[0].name);
       UpdateFloor(Floors.data[0]);
       setisLoading(false);
+      console.log(Floors.data);
     }
+
     floor = Floors.data.map((item) => (
       <Dropdown.Item
         as="button"
@@ -43,19 +45,17 @@ function DropDown(props) {
     ));
   }
 
-  if (Floors.error) {
-    // alert("Database is not responding, please try again later.");
-  }
-
   return (
     <div className="topRowDropdown">
-      <img
-        className="sliderIcon"
-        onClick={() => {
-          props.onClick(!props.isVisible);
-        }}
-        src={SettingsIcon}
-      ></img>
+      {!isLoading && (
+        <img
+          className="sliderIcon"
+          onClick={() => {
+            props.onClick(!props.isVisible);
+          }}
+          src={SettingsIcon}
+        ></img>
+      )}
       <DropdownButton id="dropdown-item-button" title={dropDownValue}>
         {floor}
       </DropdownButton>
