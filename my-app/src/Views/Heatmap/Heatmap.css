@@ -40,14 +40,13 @@ canvas{
     top: 0;
 }
 #heatmapContainer > div{
-    width: 95%; 
+    width: 95%;
     height: auto;
     margin:auto;
     position: relative;
 }
 #heatmapContainer img{
     max-width: 100%;
-    max-height: 400px;
 
 }
 .heatMapToolTip{

@@ -19,9 +19,9 @@ function SensorList() {
   const groups = useSelector((state) => state.groups);
   const [groupFormActive, setGroupFormActive] = useState(false)
   GetSensorDbData();
-  SensorMqttData(); 
-  RandomizeData();
-  
+  SensorMqttData();
+  //RandomizeData();
+
   let sensorGroups = <div>Loading sensors..</div>;
   let individualSensors = [];
   if (sensors) {
