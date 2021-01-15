@@ -32,3 +32,28 @@ export const SetFloor = (data) => {
         payload: data,
     };
 };
+
+export const addIp = (data) => {
+    return {
+        type: "ADDIP",
+        payload: data,
+    };
+};
+export const removeIp = (data) => {
+    return {
+        type: "REMOVEIP",
+        payload: data,
+    };
+};
+export const addUser = (data) => {
+    return {
+        type: "ADDUSER",
+        payload: data,
+    };
+};
+export const removeUser = (data) => {
+    return {
+        type: "REMOVEUSER",
+        payload: data,
+    };
+};

@@ -8,18 +8,21 @@ import {useSelector, useDispatch } from "react-redux";
 import {setSelectedSensor} from '../../../actions'
 import SensorOptionsDropdown from '../Components/SensorOptionsDropdown'
 
+
 export default function SensorItem(props){
     const dispatch = useDispatch();
     let temp = getTemperature(props.sensor.temperature)
     let hum = getHumidity(props.sensor.humidity)
     const selectedSensor = useSelector((state) => state.selectedSensor);
     const [optionForm, SetOptionForm] = useState(false);
+
     let selected = "";
     if(selectedSensor){
       if(selectedSensor.id == props.sensor.id){
         selected = "selected"
       }
     }
+  
     const clickSelected = (e) => {
       if(e.target.closest(".PD")){
         return;
@@ -38,6 +41,7 @@ export default function SensorItem(props){
            ref={provided.innerRef}
            isDragging={snapshot.isDragging}
            onClick={(e) =>clickSelected(e)}
+
           >
             <img src={SensorIcon}/>
             <span className="SensorName">{props.sensor.name}</span>
@@ -47,6 +51,7 @@ export default function SensorItem(props){
             <img className="sensorOptionsIcon PD" src={SensorOptionsIcon} onClick={() => SetOptionForm(!optionForm)}/>
              <SensorOptionsDropdown sensor={props.sensor} active={optionForm} setActive={(value) => SetOptionForm(value)} />
             </div>
+
 
             
             </div>

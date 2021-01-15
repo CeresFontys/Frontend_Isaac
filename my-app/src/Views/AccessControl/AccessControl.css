@@ -4,7 +4,6 @@
     float: right;
     margin-right: 10px;
     cursor: pointer;
-    filter: invert(65%) sepia(8%) saturate(6864%) hue-rotate(317deg) brightness(95%) contrast(89%);
 }
 
 img.ipOptionsIcon {
@@ -13,9 +12,7 @@ img.ipOptionsIcon {
     float: right;
     margin-right: 10px;
     cursor: pointer;
-    filter: invert(65%) sepia(8%) saturate(6864%) hue-rotate(317deg) brightness(95%) contrast(89%);
 }
-
 
 .ipName {
     float: left;
@@ -69,3 +66,4 @@ img.ipOptionsIcon {
     float: right;
     cursor: pointer;
 }
+

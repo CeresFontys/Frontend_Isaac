@@ -53,7 +53,6 @@ export default function SensorGroup(props) {
           <span className={`SensorTemp ${getTempStatuscolor(groupdata.temp)}`}>
             {getTemperature(groupdata.temp)}°
           </span>
-
           <span className={`SensorHum ${getHumStatuscolor(groupdata.hum)}`}>
             {getHumidity(groupdata.hum)}%
           </span>

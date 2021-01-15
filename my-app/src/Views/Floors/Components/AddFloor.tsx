@@ -11,11 +11,11 @@ import { SetFloor } from "../../../actions/";
 function AddFloor(props) {
   const dispatch = useDispatch();
   const currentFloor = useSelector((state: any) => state.floors);
-  const [id, setId] = useState();
-  const [image, setImage] = useState();
-  const [name, setName] = useState();
-  const [width, setWidth] = useState();
-  const [length, setLength] = useState();
+  const [id, setId] = useState("");
+  const [image, setImage] = useState("");
+  const [name, setName] = useState("");
+  const [width, setWidth] = useState("");
+  const [length, setLength] = useState("");
   const [submitMessage, setSubmitMessage] = useState(<div></div>);
 
   useEffect(() => {
@@ -26,10 +26,34 @@ function AddFloor(props) {
   }, [currentFloor]);
   let floor = currentFloor;
 
+  const handleClick = (event: any) => {
+    if (window.confirm("Are you sure you want to delete this floor?")) {
+      axios({
+        method: "delete",
+        url: "http://localhost:5006/Floor/" + id,
+      })
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+          setSubmitMessage(<div className="succesfulDelete">Succes</div>);
+          dispatch(SetFloor(floor));
+        })
+        .catch((error) => {
+          console.log(error.response);
+          console.log(error);
+          setSubmitMessage(
+            <div className="unsuccesfullDelete">
+              Unsuccesfull try again later
+            </div>
+          );
+        });
+    }
+  };
+
   const handleSubmit = (event: any) => {
     event.preventDefault();
     var bodyFormData = new FormData();
-    bodyFormData.append("Floor.Id", id);
+    bodyFormData.append("Floor.Id", "0");
     bodyFormData.append("Floor.Name", name);
     bodyFormData.append("Floor.Length", length);
     bodyFormData.append("Floor.Width", width);
@@ -49,7 +73,6 @@ function AddFloor(props) {
         console.log(res.data);
         setSubmitMessage(<div className="succes">Succes</div>);
         dispatch(SetFloor(floor));
-        //ReloadFloors(res);
       })
       .catch((error) => {
         console.log(error.response);
@@ -98,14 +121,13 @@ function AddFloor(props) {
           ></Form.Control>
         </Form.Group>
         <div className="form-group">
-          <Button
-            type="submit"
-            className="btn btnpos"
-            onClick={(e) => props.onClick("test")}
-          >
+          <Button type="submit" className="btn btnpos">
             Save
           </Button>
           {submitMessage}
+          <Button onClick={(e: any) => handleClick(e)} className="btn color">
+            Delete floor
+          </Button>
         </div>
       </Form>
     </div>
