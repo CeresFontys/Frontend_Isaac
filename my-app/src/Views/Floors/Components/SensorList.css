@@ -49,7 +49,6 @@ outline: none;
     align-items: start;
     user-select: none;
     position: relative;
-    max-height: 44px;
     transition: max-height 0.7s cubic-bezier(0,1,0,1);
 }
 .group-open {
@@ -82,6 +81,7 @@ outline: none;
 .groupList{
     margin-top: 13px;
     width: 100%;
+    display: none;
 }
 
 

@@ -9,6 +9,10 @@ import {UserView} from "./Views/UserView";
 import {WhiteListView} from "./Views/WhiteListView";
 import {StartData} from "./Models/StartData";
 import PlusSignIcon from "../../../src/Media/icons/plus.png";
+import Header from "../../Components/Header";
+import Heatmap from "../Heatmap/Heatmap";
+import Navigation from "../../Components/Navigation";
+import Footer from "../../Components/Footer";
 
 
 interface IProps {
@@ -94,7 +98,7 @@ export class AccessControlPage extends React.Component<IProps, IState> {
 
 	handleWhitelistSubmit(event){
 		event.preventDefault();
-		this.addWhitelist(this, {name: this.state.whitelistFormData.name, ip: this.state.whitelistFormData.ip, id: BigInt(1)})
+		this.addWhitelist(this, {name: this.state.whitelistFormData.name, ip: this.state.whitelistFormData.ip, id: 1})
 	}
 
 	userDropdownForm(){
@@ -139,7 +143,7 @@ export class AccessControlPage extends React.Component<IProps, IState> {
 	}
 	handleUserSubmit(event){
 		event.preventDefault();
-		this.addUser(this, new User(BigInt(1), this.state.userFormData.name, this.state.userFormData.email))
+		this.addUser(this, new User(1, this.state.userFormData.name, this.state.userFormData.email))
 	}
 
 	removeWhitelist(page: AccessControlPage, whitelist: Whitelist){
@@ -166,7 +170,13 @@ export class AccessControlPage extends React.Component<IProps, IState> {
 
 	render() {
 		return (
-			<div>
+			<>
+	<Header />
+    <Heatmap />
+    <div id="SideBar">
+      <Navigation />
+			<div className="contentContainer">
+			
 				<button onClick={(event)=>{this.refresh(this)}}>Refresh</button>
 				{this.userDropdownForm()}
 				<div className="AccessUserHeader"><div className="AccessUserTitle">Users:</div><img className="AccessUserAdd" src={PlusSignIcon} onClick={(event)=>{this.userDropdown(this)}}></img></div>
@@ -186,7 +196,11 @@ export class AccessControlPage extends React.Component<IProps, IState> {
 						})
 					}
 				</div>
+			
 			</div>
+			<Footer/>
+			</div>
+			</>
 		);
 
 	}

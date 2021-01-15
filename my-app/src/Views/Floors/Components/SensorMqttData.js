@@ -12,7 +12,7 @@ export function SensorMqttData(sensorList) {
   const sensorsStoreData = useSelector((state) => state.sensors);
 
   useEffect(() => {
-    const topic = "sensordata/#";
+    const topic = "frontend/#";
     // eslint-disable-next-line react-hooks/exhaustive-deps
     mqttClient = mqtt.connect("wss://server.kurza.nl:8081", {
       protocol: "wss",
@@ -52,6 +52,7 @@ export function SensorMqttData(sensorList) {
 
   if (sensorsStoreData != null && updatedSensor) {
     let updatedSensorData = sensorsStoreData;
+    var newSensor = true;
     updatedSensorData.forEach((sensor) => {
       if (
         sensor.floor == updatedSensor.floor &&
@@ -60,18 +61,20 @@ export function SensorMqttData(sensorList) {
       ) {
         switch (updatedSensor.type) {
           case "humidity":
-            sensor.humidity = updatedSensor.value;
+            sensor.humidity = parseFloat(updatedSensor.value);
             break;
           case "temperature":
-             sensor.temperature = updatedSensor.value;
+             sensor.temperature = parseFloat(updatedSensor.value);
             break;
           default:
             break;
         }
-      }else{
-        // Add sensor to database
+        newSensor = false
       }
     });
+    if(newSensor){
+      console.log(`newSenso`)
+    }
     dispatch(setSensors(updatedSensorData));
   }
 }

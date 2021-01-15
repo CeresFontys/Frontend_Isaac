@@ -1,10 +1,10 @@
 export class User {
-    id: bigint;
+    id: number;
     name: string;
     email: string;
     roles: string[];
 
-    constructor(id:bigint, name:string, email:string) {
+    constructor(id:number, name:string, email:string) {
         this.id = id;
         this.name = name;
         this.roles = new Array<string>();

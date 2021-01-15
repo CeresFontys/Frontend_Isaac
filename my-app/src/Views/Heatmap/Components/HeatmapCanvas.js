@@ -23,6 +23,7 @@ function HeatmapCanvas() {
   const heatmapImgRef = useRef(null);
   const [heatmapImgWidth, setHeatmapImgWidth] = useState({width:"0", height:"0"});
   const [heatmapImg, setHeatmapImg] = useState(DefaultHeatmapImg);
+  let avgStats = {temp:0,hum:0}
 
   const requestRef = useRef(null);
   let floorDimensions = null;
@@ -139,6 +140,20 @@ function HeatmapCanvas() {
       });
     }
   };
+  if(sensors){
+
+    var avgTemp =0;
+    var avgHum =0
+   
+    sensors.forEach(s =>{
+      avgTemp +=  s.temperature;
+      avgHum +=  s.humidity
+    })
+
+      avgTemp = (avgTemp / sensors.length).toFixed(2);
+      avgHum = (avgHum / sensors.length).toFixed(2);
+      avgStats ={temp:avgTemp, hum:avgHum};
+  }
 
   const [tooltip, setTooltip] = useState(null);
   const [HoveredSensor, setHoveredSensor] = useState(null);
@@ -253,6 +268,11 @@ function HeatmapCanvas() {
   };
 
   return (
+    <>
+    <section className="avgHeatmap">
+        <p>AVG TEMP <span className={getTempStatuscolor(avgStats.temp)}>{avgStats.temp}°</span></p>
+        <p>AVG HUM  <span className={getHumStatuscolor(avgStats.hum)}>{avgStats.hum}%</span></p>
+        </section>
     <div style={{ position: "relative" }}>
       <img
         src={heatmapImg}
@@ -271,6 +291,7 @@ function HeatmapCanvas() {
       />
       {tooltip}
     </div>
+    </>
   );
 }
 

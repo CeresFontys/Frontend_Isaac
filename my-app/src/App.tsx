@@ -16,8 +16,6 @@ import Footer from "./Components/Footer";
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <Heatmap />
       <Switch>
         <NotGuardedRoute
           path="/login"
@@ -25,28 +23,24 @@ function App() {
           exact
           component={Login}
         />
-        <div id="SideBar">
-          <Navigation />
-          <NotGuardedRoute
+          <GuardedRoute
             exact
             path="/floors"
             isAuthenticated={localStorage.getItem("user")}
             component={FloorsPage}
           />
-          <NotGuardedRoute
+          <GuardedRoute
             exact
             path="/access-control"
             isAuthenticated={localStorage.getItem("user")}
             component={AccessControlPage}
           />
-          <NotGuardedRoute
+          <GuardedRoute
             exact
             path="/errorlog"
             isAuthenticated={localStorage.getItem("user")}
             component={ErrorLogPage}
           />
-          <Footer />
-        </div>
       </Switch>
     </BrowserRouter>
   );
