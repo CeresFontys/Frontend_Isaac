@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Login from "./Views/Account/login.component";
 import "./App.css";
 import Header from "./Components/Header";
@@ -16,6 +16,7 @@ import Footer from "./Components/Footer";
 function App() {
   return (
     <BrowserRouter>
+     <Redirect from="/" to="/floors" />
       <Switch>
         <NotGuardedRoute
           path="/login"
