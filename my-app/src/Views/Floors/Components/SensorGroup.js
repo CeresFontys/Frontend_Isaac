@@ -63,6 +63,7 @@ export default function SensorGroup(props) {
           <div className="sensorOptionsHolder">
             <img className="sensorOptionsIcon PD" src={SensorOptionsIcon} onClick={() => SetOptionForm(!optionForm)}/>
              <GroupOptionsDropdown groupId={props.group.id} active={optionForm} setActive={(value) => SetOptionForm(value)} handleRename={() => setRename(true)}/>
+
             
             <img
               className={

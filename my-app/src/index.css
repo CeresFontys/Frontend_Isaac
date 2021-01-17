@@ -16,3 +16,100 @@ html,body{
   max-height: 100vh;
   overflow: hidden;
 }
+
+.error-container{
+  padding: 0px;
+  height: 480px;
+  overflow-y: auto;
+}
+.delete-icon-error{
+  cursor: pointer;
+  color: #C4C4C4;
+}
+.delete-icon-error:hover{
+  cursor: pointer;
+  color: #56B1E2;
+}
+
+.error-tag{
+  font-size: 17px;
+}
+
+.error-title{
+  padding: 20px 15px 15px 15px;
+  color: #6C7C7C;
+}
+
+.error-toggle{
+  font-size: 13px;
+  border-style: none;
+  color: #009DDC;
+  background: transparent;
+}
+.delete-auto{
+  margin: 0 auto;
+}
+
+.error-self-align{
+  align-self: center;
+}
+.error-icon-sensor{
+  width: 30px;
+}
+.error-type{
+  color: #6c7c7c;
+  font-size: 12px;
+}
+.error-flag-icon{
+  color: #E04B4B;
+}
+
+.error-ul{
+  padding-left: 0px;
+}
+.card-border{
+  border-style: none !important;
+}
+
+.error-time{
+  font-size: 13px;
+}
+
+.card-style{
+  padding: 5px 20px !important;
+  background: #F8F8F8 !important;
+}
+.row-padding{
+  padding: 0px 20px 0px 20px;
+}
+.dl-font{
+  font-size: 12px;
+  color: #6c7c7c;
+}
+
+.font-15{
+  font-size: 15px;
+}
+.left-25{
+  padding-left: 14px;
+}
+
+
+
+
+
+.auto-margin{
+  color: #6c7c7c;
+  font-size: 15px;
+  margin: auto;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.error-accordion{
+  border-radius: 5px;
+  border-style: none;
+  background: #F8F8F8;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.13);
+  margin: 8px 0px 8px 0px !important;
+}

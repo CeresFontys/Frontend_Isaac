@@ -28,6 +28,7 @@ export function SensorMqttData() {
       });
     });
     mqttClient.on("message", (topic, payload, packet) => {
+      console.log(topic);
       var updateSensor = {
         floor: getTextBetween(topic, "/", 1, 2),
         x: getTextBetween(topic, "/", 2, 3),
