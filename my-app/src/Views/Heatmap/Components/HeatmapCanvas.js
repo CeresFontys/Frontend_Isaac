@@ -138,6 +138,7 @@ function HeatmapCanvas() {
           )
         );
       });
+      
     }
   };
   if(sensors){
@@ -150,8 +151,8 @@ function HeatmapCanvas() {
       avgHum +=  s.humidity
     })
 
-      avgTemp = (avgTemp / sensors.length).toFixed(2);
-      avgHum = (avgHum / sensors.length).toFixed(2);
+      avgTemp = (avgTemp / sensors.length).toFixed(1);
+      avgHum = (avgHum / sensors.length).toFixed(1);
       avgStats ={temp:avgTemp, hum:avgHum};
   }
 

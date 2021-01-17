@@ -94,3 +94,21 @@
   margin: auto;
   margin-top: 90px;
 }
+
+.AddUserForm .true{
+    height: 218px !important;
+}
+.AddUserForm input, .AddIPForm input{
+  margin-top: 5px;
+}
+.AddUserForm input:first-child, .AddIPForm input:first-child{
+  margin-top: 0px;
+}
+.AddIPForm .true{
+  height: 175px !important;
+}
+.SGFormHolder{
+  width: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
