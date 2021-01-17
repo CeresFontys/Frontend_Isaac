@@ -16,3 +16,8 @@ html,body{
   max-height: 100vh;
   overflow: hidden;
 }
+
+.error-container{
+  height: 100%;
+  overflow-y: auto;
+}

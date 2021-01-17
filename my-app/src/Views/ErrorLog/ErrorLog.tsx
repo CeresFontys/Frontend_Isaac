@@ -4,6 +4,9 @@ import "./ErrorLog.css";
 import * as signalR from "@microsoft/signalr";
 import {useAxiosGet} from "../../Hooks/HttpRequest";
 import {HubConnectionBuilder} from "@microsoft/signalr";
+import ErrorComponent from "./Components/ErrorComponent";
+
+
 
 
 
@@ -49,7 +52,11 @@ function ErrorLogPage(){
 
 	// const errorUrl = "http://localhost:5004/sensorerror";
 
-	return(<div>ErrorLog</div>)
+	return(
+		<div className="container error-container">
+			<ErrorComponent/>
+		</div>
+	)
 }
 
 export default ErrorLogPage;
