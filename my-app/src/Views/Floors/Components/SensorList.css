@@ -1,13 +1,7 @@
 .sensorItem img {
   width: 20px;
 }
-.sensorOptionsIcon {
-  width: 20px;
-  right: 0;
-  position: absolute;
-  margin-right: 10px;
-  cursor: pointer;
-}
+
 .headerIcons {
   position: absolute;
   right: 0;
@@ -24,6 +18,9 @@
 img.chevron-down.flip {
     transform: rotateX(180deg);
 }
+.selected{
+  box-shadow: 0px 0px 2px 1px #009ddc !important;
+}
 .sensorItem{
     background: #F8F8F8;
     width: 100%;
@@ -38,6 +35,7 @@ img.chevron-down.flip {
 -moz-user-select: none; /* Firefox */
 -ms-user-select: none; /* IE10+/Edge */
 user-select: none;
+outline: none;
 }
 .SensorGroup{
     background: #F8F8F8;
@@ -51,9 +49,7 @@ user-select: none;
     align-items: start;
     user-select: none;
     position: relative;
-    max-height: 44px;
     transition: max-height 0.7s cubic-bezier(0,1,0,1);
-    overflow: hidden;
 }
 .group-open {
   max-height: 1000px;
@@ -79,22 +75,26 @@ user-select: none;
 }
 
 .groupList-hidden{
-    display: none;
+    overflow: hidden;
 }
 
 .groupList{
     margin-top: 13px;
     width: 100%;
+    display: none;
 }
+
 
 #SensorListContainer h2 {
   display: inline-block;
+    color: #6C7C7C;
+    font-size: 30px;
 }
 .SensorName {
   color: #6c7c7c;
   margin-left: 10px;
   font-size: 16px;
-  width: 80px;
+  margin-right: 10px;
   display: inline-block;
   white-space: nowrap;
 }
@@ -115,15 +115,156 @@ user-select: none;
   position: absolute;
   margin-left: 5px;
 }
-.color-green {
-  color: #44de1e;
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
 }
-.color-yellow {
-  color: #dade1e;
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #e6dada; 
+  border-radius: 10px;
 }
-.color-red {
-  color: #de3636;
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b9b5b5; 
+  border-radius: 10px;
+
 }
-.color-blue {
-  color: #36b6de;
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: gray; 
+}
+
+.AddGroupBtn{
+  float: right;
+  color: #6C7C7C;
+  font-size: 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 0 2px;
+}
+
+
+.SensorListContainer{
+  overflow-y: scroll;
+  max-height: 55vh;
+  padding-right: 10px;
+  margin-right: 0;
+  box-sizing: unset;
+  width: 100%;
+}
+.btnCLoseAddGroupForm{
+  transform: rotate(45deg);
+    display: inline-block;
+    float: right;
+    font-size: 31px;
+    color: #e82e2e;
+    opacity: 0.5;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    cursor: pointer;
+}
+.btnCLoseAddGroupForm:hover{
+  opacity:1;
+}
+.AddGroupForm{
+  background: #f8f8f8;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.SGFormHolder > div{
+  transition: height 0.3s;
+}
+.AddGroupForm p{
+  margin-bottom: 5px;
+}
+.AddGroupForm input{
+  background: #ebebeb;
+    border-radius: 5px;
+    height: 37px;
+    width: 100%;
+    border: 1px solid #d0d0d0;
+    outline: 0;
+    padding: 0 10px;
+}
+.AddGroupForm input::placeholder{
+  opacity: 0.6;
+}
+.SendFormBtnHolder{
+  display: flex;
+  justify-content: flex-end;
+}
+.SendFormBtnHolder span{
+    background: #009DDC;
+    padding: 8px 13px;
+    border-radius: 5px;
+    border: unset;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.884);
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+.SendFormBtnHolder span:hover{
+  background: #0f89b9;
+  color: white;
+}
+.SGFormHolder .false{
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.SGFormHolder .true{
+  height: 136px;
+  margin-bottom: 10px;
+}
+
+.sensorOptionsHolder img{
+  width: 20px;
+  cursor: pointer;
+}
+.sensorOptionsHolder .activeContext{
+  position: absolute;
+  width: max-content;
+  height: auto;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  background: #E0E0E0;
+  cursor: pointer;
+  box-shadow: 0 0 3px 1px #b0b0b0;
+}
+.sensorOptionsHolder div p{
+  margin: 0;
+  padding: 6px 15px;
+  font-size: 13px;
+  border-top: 1px solid #C4C4C4;
+}
+.sensorOptionsHolder div p i{
+  width: 15px;
+}
+.sensorOptionsHolder div p:first-child{
+  border-top: none;
+}
+.sensorOptionsHolder div{
+  display: none;
+}
+
+.sensorOptionsHolder{
+  right: 0;
+  position: absolute;
+  margin-right: 10px;
+  position: relative;
+  margin-left: auto;
 }

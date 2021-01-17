@@ -29,6 +29,10 @@
   box-sizing: border-box;
 }
 
+.color {
+  color: white;
+}
+
 .boxOpen {
   max-height: 1000px;
   transition: max-height 0.7s ease-in;
@@ -50,9 +54,23 @@
   color: red;
 }
 
+.unsuccesfullDelete {
+  float: right;
+  padding-right: 75px;
+  padding-top: 8px;
+  color: red;
+}
+
 .succes {
   float: right;
   padding-right: 10px;
+  padding-top: 8px;
+  color: green;
+}
+
+.succesfulDelete {
+  float: right;
+  padding-right: 220px;
   padding-top: 8px;
   color: green;
 }
@@ -66,6 +84,7 @@
 .sliderIcon {
   position: absolute;
   right: 0;
+  cursor: pointer;
 }
 
 .contentContainer {
@@ -73,4 +92,23 @@
   left: 0;
   right: 0;
   margin: auto;
+  margin-top: 90px;
+}
+
+.AddUserForm .true{
+    height: 218px !important;
+}
+.AddUserForm input, .AddIPForm input{
+  margin-top: 5px;
+}
+.AddUserForm input:first-child, .AddIPForm input:first-child{
+  margin-top: 0px;
+}
+.AddIPForm .true{
+  height: 175px !important;
+}
+.SGFormHolder{
+  width: 100%;
+  z-index: 0;
+  overflow: hidden;
 }

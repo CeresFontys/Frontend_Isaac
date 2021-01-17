@@ -5,6 +5,13 @@ export const setSensors = (data) => {
   };
 };
 
+export const setSelectedSensor = (data) => {
+  return {
+    type: "SETSELECTEDSENSOR",
+    payload: data,
+  };
+};
+
 export const updateSensorGroup = (data) => {
   return {
     type: "UPDATESENSORS",

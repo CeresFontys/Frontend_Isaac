@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Login from "./Views/Account/login.component";
 import "./App.css";
 import Header from "./Components/Header";
@@ -11,12 +11,12 @@ import Heatmap from "./Views/Heatmap/Heatmap";
 import NotGuardedRoute from "./Routes/NotGuardedRoute";
 import FloorsPage from "./Views/Floors/Floors";
 import GuardedRoute from "./Routes/GuardedRoute";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <Heatmap />
+     <Redirect from="/" to="/floors" />
       <Switch>
         <NotGuardedRoute
           path="/login"
@@ -24,27 +24,24 @@ function App() {
           exact
           component={Login}
         />
-        <div id="SideBar">
-          <Navigation />
-          <NotGuardedRoute
+          <GuardedRoute
             exact
             path="/floors"
             isAuthenticated={localStorage.getItem("user")}
             component={FloorsPage}
           />
-          <NotGuardedRoute
+          <GuardedRoute
             exact
             path="/access-control"
             isAuthenticated={localStorage.getItem("user")}
             component={AccessControlPage}
           />
-          <NotGuardedRoute
+          <GuardedRoute
             exact
             path="/errorlog"
             isAuthenticated={localStorage.getItem("user")}
             component={ErrorLogPage}
           />
-        </div>
       </Switch>
     </BrowserRouter>
   );

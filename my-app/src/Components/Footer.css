@@ -1,0 +1,56 @@
+#Footer {
+  display: flex;
+  height: 70px;
+  align-items: center;
+  /* background: rgba(86, 177, 226, 1); */
+  width: 100%;
+  right: 0;
+  bottom: 0;
+  margin-top: auto;
+}
+
+#Links {
+  display: flex;
+}
+
+#Footer #Links > div {
+  width: 125px;
+  cursor: pointer;
+}
+
+.Active:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0;
+  width: 100%;
+  border-bottom: 2px solid white;
+  transition: width 0.3s ease;
+}
+
+.logoutIcon:hover {
+  position: absolute;
+  right: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.logoutIcon {
+  position: absolute;
+  right: 20px;
+  height: 20px;
+}
+
+.userIcon {
+  padding-left: 30px;
+}
+
+.userEmailText {
+  margin-top: 12px;
+  margin-left: 10px;
+}
+
+.inline {
+  display: -webkit-inline-box;
+}

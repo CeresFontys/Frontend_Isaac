@@ -53,6 +53,7 @@ export function SensorMqttData(sensorList) {
 
   if (sensorsStoreData != null && updatedSensor) {
     let updatedSensorData = sensorsStoreData;
+    var newSensor = true;
     updatedSensorData.forEach((sensor) => {
       if (
         sensor.floor == updatedSensor.floor &&
@@ -61,14 +62,20 @@ export function SensorMqttData(sensorList) {
       ) {
         switch (updatedSensor.type) {
           case "humidity":
-            return (sensor.humidity = updatedSensor.value);
+            sensor.humidity = parseFloat(updatedSensor.value.replace(/,/g, '.'));
+            break;
           case "temperature":
-            return (sensor.temperature = updatedSensor.value);
+             sensor.temperature = parseFloat(updatedSensor.value.replace(/,/g, '.'));
+            break;
           default:
-            return;
+            break;
         }
+        newSensor = false
       }
     });
+    if(newSensor){
+      console.log(`newSenso`)
+    }
     dispatch(setSensors(updatedSensorData));
   }
 }

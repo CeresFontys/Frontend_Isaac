@@ -1,33 +1,61 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import SensorIcon from '../../../Media/icons/sensor.png'
 import SensorOptionsIcon from '../../../Media/icons/moreDots.png'
 import './SensorList.css';
-import {getTemperature, getHumidity, getTempStatusCollor,getHumStatusCollor} from'./../Utils/SensorHelpers';
+import {getTemperature, getHumidity, getTempStatuscolor, getHumStatuscolor} from'../../../Utils/SensorHelpers';
 import { Draggable } from 'react-beautiful-dnd'
+import {useSelector, useDispatch } from "react-redux";
+import {setSelectedSensor} from '../../../actions'
+import SensorOptionsDropdown from '../Components/SensorOptionsDropdown'
 
-export default class SensorItem extends Component {
+
+export default function SensorItem(props){
+    const dispatch = useDispatch();
+    let temp = getTemperature(props.sensor.temperature)
+    let hum = getHumidity(props.sensor.humidity)
+    const selectedSensor = useSelector((state) => state.selectedSensor);
+    const [optionForm, SetOptionForm] = useState(false);
+
+    let selected = "";
+    if(selectedSensor){
+      if(selectedSensor.id == props.sensor.id){
+        selected = "selected"
+      }
+    }
   
-
-  render() {
-    let temp = getTemperature(this.props.sensor.temperature)
-    let hum = getHumidity(this.props.sensor.humidity)
+    const clickSelected = (e) => {
+      if(e.target.closest(".PD")){
+        return;
+      }
+      if(selectedSensor == props.sensor){
+        return dispatch(setSelectedSensor(null));
+      }
+      dispatch(setSelectedSensor(props.sensor));
+    }
       return (
-        <Draggable draggableId={this.props.sensor.id.toString()} index={this.props.sensor.uiIndex} > 
+        <Draggable draggableId={props.sensor.id.toString()} index={props.sensor.uiIndex} > 
         {(provided, snapshot)=>(
-          <div className="sensorItem"
+          <div className={`sensorItem ${selected}`}
            {...provided.draggableProps}
            {...provided.dragHandleProps}
            ref={provided.innerRef}
            isDragging={snapshot.isDragging}
+           onClick={(e) =>clickSelected(e)}
+
           >
             <img src={SensorIcon}/>
-            <span className="SensorName">{this.props.sensor.name}</span>
-            <span className={getTempStatusCollor(temp)} >{temp}°</span>
-            <span className={getHumStatusCollor(hum)}>{hum}%</span>
-            <img className="sensorOptionsIcon" src={SensorOptionsIcon} />
+            <span className="SensorName">{props.sensor.name}</span>
+            <span className={`SensorTemp ${getTempStatuscolor(temp)}`} >{temp}°</span>
+            <span className={`SensorHum ${getHumStatuscolor(hum)}`}>{hum}%</span>
+            <div className="sensorOptionsHolder">
+            <img className="sensorOptionsIcon PD" src={SensorOptionsIcon} onClick={() => SetOptionForm(!optionForm)}/>
+             <SensorOptionsDropdown sensor={props.sensor} active={optionForm} setActive={(value) => SetOptionForm(value)} />
+            </div>
+
+
+            
             </div>
         )}
         </Draggable>
       )
   }
-}
