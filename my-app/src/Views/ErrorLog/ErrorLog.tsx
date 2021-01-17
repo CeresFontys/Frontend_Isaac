@@ -82,9 +82,11 @@ function ErrorLogPage(){
     <div id="SideBar">
       <Navigation />
 	  <div className="contentContainer">
-	<div className="container error-container">
+
+		  <h2 className="error-title">Sensor logs:</h2>
+		  <div className="container error-container">
 			<ErrorComponent/>
-  </div>
+	  </div>
 	</div>
 	<Footer />
 	</div>
