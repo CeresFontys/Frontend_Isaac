@@ -28,7 +28,6 @@ export function SensorMqttData(sensorList) {
       });
     });
     mqttClient.on("message", (topic, payload, packet) => {
-      console.log(topic);
       var updateSensor = {
         floor: getTextBetween(topic, "/", 1, 2),
         x: getTextBetween(topic, "/", 2, 3),
@@ -43,7 +42,7 @@ export function SensorMqttData(sensorList) {
     });
 
     return () => {
-      mqttClient.unsubscribe("#", function (err) {
+      mqttClient.unsubscribe("frontend/#", function (err) {
         if (!err) {
           console.log(err);
         }

@@ -21,6 +21,8 @@ import axios from "axios";
 export default function SensorGroup(props) {
   const [groupOpen, setGroupOpen] = useState(false);
   const [optionForm, SetOptionForm] = useState(false);
+  const [rename, setRename] = useState(false);
+  const [groupName, setGroupName] = useState(props.group.name);
 
   const getGroupData =() =>{
     let GroupData = { temp: null, hum: null };
@@ -50,7 +52,7 @@ export default function SensorGroup(props) {
       >
         <section className="GroupHeader">
           <img className="GroupIcon" src={SensorGroupIconAlt} alt="" />
-          <span className="SensorName">{props.group.name}</span>
+          <span contentEditable={rename} value={groupName} className={`SensorName ${rename&&"editable"}`} onChange={(e) => setGroupName(e.target.value)}>{groupName}</span>
           <span className={`SensorTemp ${getTempStatuscolor(groupdata.temp)}`}>
             {getTemperature(groupdata.temp)}°
           </span>
@@ -60,7 +62,7 @@ export default function SensorGroup(props) {
           <div className="headerIcons">
           <div className="sensorOptionsHolder">
             <img className="sensorOptionsIcon PD" src={SensorOptionsIcon} onClick={() => SetOptionForm(!optionForm)}/>
-             <GroupOptionsDropdown groupId={props.group.id} active={optionForm} setActive={(value) => SetOptionForm(value)}/>
+             <GroupOptionsDropdown groupId={props.group.id} active={optionForm} setActive={(value) => SetOptionForm(value)} handleRename={() => setRename(true)}/>
             
             <img
               className={

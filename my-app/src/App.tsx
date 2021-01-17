@@ -16,7 +16,6 @@ import Footer from "./Components/Footer";
 function App() {
   return (
     <BrowserRouter>
-     <Redirect from="/" to="/floors" />
       <Switch>
         <NotGuardedRoute
           path="/login"
@@ -42,6 +41,7 @@ function App() {
             isAuthenticated={localStorage.getItem("user")}
             component={ErrorLogPage}
           />
+          <Redirect exact from="/" to="/floors" />
       </Switch>
     </BrowserRouter>
   );

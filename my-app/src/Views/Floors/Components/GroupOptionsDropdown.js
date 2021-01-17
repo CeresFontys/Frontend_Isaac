@@ -19,7 +19,8 @@ export default function SensorOptionsDropdown(props){
       };
    
     const handleRename = () => {
-
+        props.handleRename();
+        props.setActive(false)
     }
     const handleDelete = () =>{
         axios({
@@ -32,13 +33,12 @@ export default function SensorOptionsDropdown(props){
             .catch((error) => {
               console.log(error.response);
               console.log(error);
-            });
-        
+            }); 
     }
 
       return (
           <div ref={context} className={props.active?"activeContext PD":"PD"}>
-              <p><i className="far fa-edit"></i> Rename</p>
+              <p onClick={() => handleRename()}><i className="far fa-edit"></i> Rename</p>
               <p onClick={() =>handleDelete()}><i className="fas fa-ban"></i> Delete</p>
           </div>
       )
