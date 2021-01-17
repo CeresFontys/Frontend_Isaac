@@ -138,6 +138,7 @@ function HeatmapCanvas() {
           )
         );
       });
+      
     }
   };
   if(sensors){
@@ -260,10 +261,12 @@ function HeatmapCanvas() {
         canvasRef.current.width,
         canvasRef.current.height
       );
+      
       circles.forEach((circle) => {
         circle.update();
       });
     }
+    
     requestRef.current = requestAnimationFrame(animate);
   };
 

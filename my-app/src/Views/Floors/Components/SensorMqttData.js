@@ -3,7 +3,7 @@ import mqtt from "mqtt";
 import { useDispatch, useSelector } from "react-redux";
 import { setSensors } from "../../../actions";
 
-export function SensorMqttData(sensorList) {
+export function SensorMqttData() {
   const dispatch = useDispatch();
 
   const [connectionStatus, setConnectionStatus] = useState(false);
@@ -72,10 +72,7 @@ export function SensorMqttData(sensorList) {
         newSensor = false
       }
     });
-    if(newSensor){
-      console.log(`newSenso`)
-    }
-    dispatch(setSensors(updatedSensorData));
+     dispatch(setSensors(updatedSensorData));
   }
 }
 

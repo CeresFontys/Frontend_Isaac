@@ -27,11 +27,10 @@ function AddSensorGroupForm(props) {
         data: newGroup,
         headers: { "Content-Type": "application/json" },
       })
-        .then((res) => {
-          
-        //  let groupList = groupsStoreData;
-        //  groupList.push(res.data)
-        //  dispatch(setGroups(groupList));
+        .then((res) => {       
+         let groupList = groupsStoreData;
+         groupList.push(res.data)
+         dispatch(setGroups(groupList));
          window.location.reload();
         })
         .catch((error) => {
