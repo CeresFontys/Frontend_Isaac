@@ -13,6 +13,8 @@ import Header from "../../Components/Header";
 import Heatmap from "../Heatmap/Heatmap";
 import Navigation from "../../Components/Navigation";
 import Footer from "../../Components/Footer";
+import AddUserForm from "./Views/AddUserForm";
+import AddIPForm from "./Views/AddIPForm";
 
 
 interface IProps {
@@ -176,19 +178,28 @@ export class AccessControlPage extends React.Component<IProps, IState> {
     <div id="SideBar">
       <Navigation />
 			<div className="contentContainer">
-			
-				<button onClick={(event)=>{this.refresh(this)}}>Refresh</button>
-				{this.userDropdownForm()}
-				<div className="AccessUserHeader"><div className="AccessUserTitle">Users:</div><img className="AccessUserAdd" src={PlusSignIcon} onClick={(event)=>{this.userDropdown(this)}}></img></div>
-					<div className="AccessUserList">
+				<div id="SensorListContainer">
+				<div>
+       			 <h2>Users</h2>
+       			 <span className="AddGroupBtn" title="Add User" onClick={()=>{this.userDropdown(this)}}>+</span>
+      			</div>
+			    </div>
+				<AddUserForm active={this.state.userDropdown} onClick={()=>{this.userDropdown(this)}}/>
+				<div className="AccessUserList">
 					{
-						this.state.users.map((user, index) => {
-							return <UserView user={user} page={this} removeAction={this.removeUser}></UserView>
+						this.state.users.map((user, index)=>{
+						return  <UserView user={user} page={this} removeAction={this.removeUser}></UserView>
 						})
 					}
 				</div>
-				{this.whitelistDropdownForm()}
-				<div className="AccessIpHeader"><div className="AccessIpTitle">Whitelist:</div><img className="AccessIpAdd" src={PlusSignIcon} onClick={(event)=>{this.whitelistDropdown(this)}}></img></div>
+
+				<div id="SensorListContainer">
+				<div>
+       			 <h2>IP Whitelist</h2>
+       			 <span className="AddGroupBtn" title="Add IP" onClick={()=>{this.whitelistDropdown(this)}}>+</span>
+      			</div>
+			    </div>
+				<AddIPForm active={this.state.whitelistDropdown} onClick={()=>{this.whitelistDropdown(this)}}/>
 				<div className="AccessIpList">
 					{
 						this.state.ips.map((ip, index)=>{

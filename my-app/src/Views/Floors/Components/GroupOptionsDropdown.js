@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, {Component, useEffect, useRef} from 'react';
 
 
@@ -20,14 +21,25 @@ export default function SensorOptionsDropdown(props){
     const handleRename = () => {
 
     }
-    const handleDisable = () =>{
+    const handleDelete = () =>{
+        axios({
+            method: "delete",
+            url: `http://localhost:5002/api/group/test/${props.groupId}`,
+          })
+            .then((res) => {      
+             window.location.reload();
+            })
+            .catch((error) => {
+              console.log(error.response);
+              console.log(error);
+            });
         
     }
 
       return (
           <div ref={context} className={props.active?"activeContext PD":"PD"}>
               <p><i className="far fa-edit"></i> Rename</p>
-              <p><i className="fas fa-ban"></i> Delete</p>
+              <p onClick={() =>handleDelete()}><i className="fas fa-ban"></i> Delete</p>
           </div>
       )
       
