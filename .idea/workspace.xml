@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="b6a2f690-5cfb-45d8-a407-7ba582c93dc6" name="Default Changelist" comment="">
+
 
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/Views/ErrorLog/ErrorLog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/Views/ErrorLog/ErrorLog.tsx" afterDir="false" />
@@ -55,11 +85,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CoPic-Frontend" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\Users\Kurza\RiderProjects\Project_Isaac_Frontend\my-app\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Users\gijsv\Documents\GitHub\Frontend_Isaac\my-app\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gijsv\Documents\GitHub\Frontend_Isaac\my-app\src\Media\icons" />
       <recent name="C:\Users\Kurza\RiderProjects\Project_Isaac_Frontend\my-app\cypress\integration" />
       <recent name="C:\Users\Kurza\RiderProjects\Project_Isaac_Frontend\my-app\src\Views" />
     </key>
@@ -74,10 +105,12 @@
       <updated>1607522194445</updated>
       <workItem from="1607522195501" duration="4772000" />
       <workItem from="1607678885516" duration="11000" />
+
       <workItem from="1607690126853" duration="2651000" />
       <workItem from="1607935484115" duration="3434000" />
       <workItem from="1608123013822" duration="600000" />
       <workItem from="1609686836381" duration="21000" />
+
     </task>
     <servers />
   </component>
@@ -106,5 +139,23 @@
   </component>
   <component name="VcsManagerConfiguration">
 
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="718" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1610625265532">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="718" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1610625265532" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1610721551941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1610721551941" />
+    <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1610845794605">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1610845794605" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1610625554488">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1610625554488" />
   </component>
 </project>
