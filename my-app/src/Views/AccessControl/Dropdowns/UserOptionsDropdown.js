@@ -16,8 +16,8 @@ export default function UserOptionsDropdown(props){
 
     return (
         <div className={props.active?"activeContext PD":"PD"}>
-            <p><i className="far fa-file-alt" onClick={() => handleRename()}></i> Rename</p>
-            <p><i className="far fa-edit" onClick={() => handleDelete()}></i> Delete</p>
+            <p onClick={() => handleRename()}><i className="far fa-file-alt"></i> Rename</p>
+            <p onClick={() => handleDelete()}><i className="far fa-edit"></i> Delete</p>
         </div>
     )
 

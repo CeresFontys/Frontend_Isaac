@@ -26,7 +26,6 @@ function FloorsPage() {
         onClick={(value) => setIsVisible(value)}
       />
       <AddFloor isVisible={isVisible} onClick={(value) => setValue(value)} />
-      {/* <img src="data:image/png;base64, BLOB" /> */}
       <br />
       <SensorList />
     </div>

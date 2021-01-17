@@ -16,6 +16,7 @@ import { useDispatch } from "react-redux";
 import { updateUiIndex } from "../../../actions";
 import GroupOptionsDropdown from '../Components/GroupOptionsDropdown'
 import $ from 'jquery';
+import axios from "axios";
 
 export default function SensorGroup(props) {
   const [groupOpen, setGroupOpen] = useState(false);
@@ -59,7 +60,7 @@ export default function SensorGroup(props) {
           <div className="headerIcons">
           <div className="sensorOptionsHolder">
             <img className="sensorOptionsIcon PD" src={SensorOptionsIcon} onClick={() => SetOptionForm(!optionForm)}/>
-             <GroupOptionsDropdown sensor={props.sensor} active={optionForm} setActive={(value) => SetOptionForm(value)} />
+             <GroupOptionsDropdown groupId={props.group.id} active={optionForm} setActive={(value) => SetOptionForm(value)}/>
             
             <img
               className={
