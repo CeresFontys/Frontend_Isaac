@@ -49,11 +49,11 @@ export class AccessControlPage extends React.Component<IProps, IState> {
 		}
 	}
 	async componentDidMount() {
-		await this.refresh()
+		await this.refresh(this)
 	}
 
-	async refresh(){
-		this.setState({users: await this.state.service.getUsers(), ips: await this.state.service.getWhiteLists()})
+	async refresh(page: AccessControlPage){
+		page.setState({users: await this.state.service.getUsers(), ips: await this.state.service.getWhiteLists()})
 	}
 
 	whitelistDropdown(page: AccessControlPage){
@@ -102,9 +102,9 @@ export class AccessControlPage extends React.Component<IProps, IState> {
 
 	async handleWhitelistSubmit(event) {
 		event.preventDefault();
-		this.addWhitelist(this, {name: this.state.whitelistFormData.name, ip: this.state.whitelistFormData.ip, id: 1})
+		this.addWhitelist(this, {name: this.state.whitelistFormData.name, ip: this.state.whitelistFormData.ip, id: 0})
 		await this.state.service.createWhitelist(new Whitelist(0, this.state.whitelistFormData.name, this.state.whitelistFormData.ip))
-		await this.refresh()
+		await this.refresh(this)
 	}
 
 	userDropdownForm(){
@@ -149,9 +149,9 @@ export class AccessControlPage extends React.Component<IProps, IState> {
 	}
 	async handleUserSubmit(event){
 		event.preventDefault();
-		this.addUser(this, new User(0, this.state.userFormData.name, this.state.userFormData.email))
-		await this.state.service.createUser(new User(0, this.state.userFormData.name, this.state.userFormData.email))
-		await this.refresh()
+		this.addUser(this, new User(0, this.state.userFormData.name, this.state.userFormData.email, 0, this.state.userFormData.password))
+		await this.state.service.createUser(new User(0, this.state.userFormData.name, this.state.userFormData.email, 0, this.state.userFormData.password))
+		await this.refresh(this)
 	}
 
 	removeWhitelist(page: AccessControlPage, whitelist: Whitelist){
@@ -189,7 +189,7 @@ export class AccessControlPage extends React.Component<IProps, IState> {
 					<div className="AccessUserList">
 					{
 						this.state.users.map((user, index) => {
-							return <UserView user={user} page={this} removeAction={this.removeUser}></UserView>
+							return <UserView refresh={() => this.refresh(this)} user={user} page={this} removeAction={this.removeUser}></UserView>
 						})
 					}
 				</div>
@@ -198,7 +198,7 @@ export class AccessControlPage extends React.Component<IProps, IState> {
 				<div className="AccessIpList">
 					{
 						this.state.ips.map((ip, index)=>{
-						return <WhiteListView whitelist={ip} page={this} removeAction={this.removeWhitelist}></WhiteListView>
+						return <WhiteListView refresh={() => this.refresh(this)} whitelist={ip} page={this} removeAction={this.removeWhitelist}></WhiteListView>
 						})
 					}
 				</div>

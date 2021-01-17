@@ -7,8 +7,6 @@ export class StartData {
 
     constructor() {
         this.users = new Array<User>();
-        this.users.push(new User(1, "", ""));
         this.whitelists = new Array<Whitelist>();
-        this.whitelists.push(new Whitelist(1, "", ""));
     }
 }

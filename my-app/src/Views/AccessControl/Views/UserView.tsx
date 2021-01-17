@@ -8,7 +8,8 @@ export class UserView extends Component {
     props: {
         user: User,
         page: AccessControlPage,
-        removeAction: (page: AccessControlPage, user: User) => void
+        removeAction: (page: AccessControlPage, user: User) => void,
+        refresh: () => void
     }
     state:{
         optionForm: boolean;
@@ -28,11 +29,11 @@ export class UserView extends Component {
 
         return (
             <div className="userListItem">
-                <span className="userName">{this.props.user.name}</span>
+                <span className="userName">{this.props.user.email}</span>
                 {admin}
                 <div className="sensorOptionsHolder">
                     <img className="sensorOptionsIcon PD" src={SensorOptionsIcon} onClick={() => this.setState({optionForm: !this.state.optionForm})}/>
-                    <UserOptionsDropdown user={this.props.user} active={this.state.optionForm} setActive={(value) => this.setState({optionForm: value})} />
+                    <UserOptionsDropdown refresh={this.props.refresh} user={this.props.user} active={this.state.optionForm} setActive={(value) => this.setState({optionForm: value})} />
                 </div>
             </div>
         );

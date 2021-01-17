@@ -11,6 +11,7 @@ export class WhiteListView extends Component {
         whitelist: Whitelist,
         page: AccessControlPage,
         removeAction: (page: AccessControlPage, whitelist: Whitelist) => void
+        refresh: () => void
     }
     state:{
         optionForm: boolean;
@@ -28,7 +29,7 @@ export class WhiteListView extends Component {
                 <span className="ipIp">{this.props.whitelist.ip}</span>
                 <div className="sensorOptionsHolder">
                     <img className="sensorOptionsIcon PD" src={SensorOptionsIcon} onClick={() => this.setState({optionForm: !this.state.optionForm})}/>
-                    <IpOptionsDropdown whitelist={this.props.whitelist} active={this.state.optionForm} setActive={(value) => this.setState({optionForm: value})} />
+                    <IpOptionsDropdown refresh={this.props.refresh} whitelist={this.props.whitelist} active={this.state.optionForm} setActive={(value) => this.setState({optionForm: value})} />
                 </div>
             </div>
         );

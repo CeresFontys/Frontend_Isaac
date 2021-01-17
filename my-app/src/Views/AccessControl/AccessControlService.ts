@@ -3,8 +3,8 @@ import {Whitelist} from "./Models/Whitelist";
 import {User} from "./Models/User";
 
 const API_URL = "http://localhost:5008/api/";
-const USER_ENDPOINT = "users/";
-const IP_ENDPOINT =  "whitelists/";
+const USER_ENDPOINT = "auth/";
+const IP_ENDPOINT =  "whitelist/";
 
 export class AccessControlService {
     constructor() {
@@ -25,13 +25,13 @@ export class AccessControlService {
         return (await axios.get(API_URL + IP_ENDPOINT, { headers: this.authHeader() })).data;
     }
     async deleteUser(id: number) : Promise<any> {
-        return await axios.delete(API_URL + USER_ENDPOINT + id, { headers: this.authHeader() })
+        return await axios.post(API_URL + USER_ENDPOINT + id + "/delete/", { headers: this.authHeader() })
     }
     async deleteWhitelist(id: number) : Promise<any> {
         return await axios.delete(API_URL + IP_ENDPOINT + id, { headers: this.authHeader() })
     }
     async updateUser(user: User) : Promise<any> {
-        return await axios.post(API_URL + USER_ENDPOINT + user.id, user,{ headers: this.authHeader() })
+        return await axios.post(API_URL + USER_ENDPOINT + user.id + "/update/", user,{ headers: this.authHeader() })
     }
     async updateWhitelist(whitelist: Whitelist) : Promise<any> {
         return await axios.post(API_URL + IP_ENDPOINT + whitelist.id, whitelist,{ headers: this.authHeader() })
