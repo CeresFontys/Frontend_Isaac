@@ -8,6 +8,7 @@ import allReducers from "./reducers";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
 
+
 const store = createStore(allReducers, composeWithDevTools());
 
 ReactDOM.render(

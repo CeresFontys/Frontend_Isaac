@@ -53,7 +53,7 @@ function AddFloor(props) {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     var bodyFormData = new FormData();
-    bodyFormData.append("Floor.Id", "0");
+    bodyFormData.append("Floor.Id", id);
     bodyFormData.append("Floor.Name", name);
     bodyFormData.append("Floor.Length", length);
     bodyFormData.append("Floor.Width", width);

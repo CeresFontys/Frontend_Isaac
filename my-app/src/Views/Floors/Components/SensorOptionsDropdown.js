@@ -13,9 +13,7 @@ export default function SensorOptionsDropdown(props){
         };
       }, []);
       const handleClick = e => {
-        if (!context.current.contains(e.target)) {
-          props.setActive(false)
-        }
+          props.setActive(false)   
       };
    
     const handleRename = () => {
