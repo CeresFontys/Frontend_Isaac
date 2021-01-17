@@ -71,6 +71,18 @@ body, html{
   .color-blue {
 	color: #36b6de;
   }
+  .background-green {
+	background: #44de1e;
+  }
+  .background-yellow {
+	background: #dade1e;
+  }
+  .background-red {
+	background: #de3636;
+  }
+  .background-blue {
+	background: #36b6de;
+  }
 
   .contentContainer {
 	width: 80%;
