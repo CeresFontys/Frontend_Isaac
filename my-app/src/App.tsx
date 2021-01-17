@@ -16,14 +16,14 @@ import Footer from "./Components/Footer";
 function App() {
   return (
     <BrowserRouter>
-     <Redirect from="/" to="/floors" />
+     <Redirect exact from="/" to="/floors" />
       <Switch>
-        <NotGuardedRoute
-          path="/login"
-          isAuthenticated={localStorage.getItem("user")}
-          exact
-          component={Login}
-        />
+          <NotGuardedRoute
+            path="/login"
+            isAuthenticated={localStorage.getItem("user")}
+            exact
+            component={Login}
+          />
           <GuardedRoute
             exact
             path="/floors"
