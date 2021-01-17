@@ -1,13 +1,18 @@
 import Axios from "axios";
 import React, { Component, useState } from "react";
 import "../../Floors/Floors.css";
+import {User} from "../Models/User";
+import axios from "axios";
+import {Whitelist} from "../Models/Whitelist";
+import {AccessControlService} from "../AccessControlService";
 
 function AddUserForm(props) {
+    let service = new AccessControlService();
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorMsg, setErrorMsg] = useState(<></>)
-  
+
     const handleFormSubmit = () =>{
         if(username == "" ){
             setErrorMsg(<pre className="SGFormErrorMsg">Couldnt add user make sure all values are filled in</pre>);
@@ -17,18 +22,13 @@ function AddUserForm(props) {
        const newUser = {
            "name":username,
        }
-       Axios({
-        method: "post",
-        url: "http://localhost:5002/api/group",
-        data: newUser,
-        headers: { "Content-Type": "application/json" },
-      })
+        service.createUser(new User(0, username, email, 0, password))
         .then((res) => {
-          
+
         //  let groupList = groupsStoreData;
         //  groupList.push(res.data)
         //  dispatch(setGroups(groupList));
-         window.location.reload();
+            props.refresh()
         })
         .catch((error) => {
           console.log(error.response);
@@ -45,17 +45,17 @@ function AddUserForm(props) {
     <div className={`AddGroupForm`} >
          <form className="PForm">
             <p>Add User <span className="btnCLoseAddGroupForm" title="close" onClick={() => props.onClick(false)}>+</span></p>
-            <input placeholder="Username" 
+            <input placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             onLoad={() => setUsername(null)}
             ></input>
-             <input placeholder="Email" 
+             <input placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             onLoad={() => setEmail(null)}
             ></input>
-             <input placeholder="Password" 
+             <input placeholder="Password"
              type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -64,10 +64,10 @@ function AddUserForm(props) {
             <div className="SendFormBtnHolder">
             {errorMsg}
                 <span onClick={() => handleFormSubmit()}>Add User</span>
-               
+
             </div>
         </form>
-    </div> 
+    </div>
     </div>
     </div>
   );

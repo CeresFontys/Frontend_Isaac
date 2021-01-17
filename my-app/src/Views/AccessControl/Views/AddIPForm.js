@@ -1,12 +1,15 @@
 import Axios from "axios";
 import React, { Component, useState } from "react";
 import "../../Floors/Floors.css";
+import {AccessControlService} from "../AccessControlService";
+import {Whitelist} from "../Models/Whitelist";
 
 function AddIPForm(props) {
+    let service = new AccessControlService();
     const [location, setLocation] = useState("");
     const [IP, setIP] = useState("");
     const [errorMsg, setErrorMsg] = useState(<></>)
-  
+
     const handleFormSubmit = () =>{
         if(location == "" ){
             setErrorMsg(<pre className="SGFormErrorMsg">Couldnt add ip make sure all values are filled in</pre>);
@@ -16,18 +19,13 @@ function AddIPForm(props) {
        const newIp = {
            "ip":IP,
        }
-       Axios({
-        method: "post",
-        url: "http://localhost:5002/api/group",
-        data: newIp,
-        headers: { "Content-Type": "application/json" },
-      })
+       service.createWhitelist(new Whitelist(0, location, IP))
         .then((res) => {
-          
+
         //  let groupList = groupsStoreData;
         //  groupList.push(res.data)
         //  dispatch(setGroups(groupList));
-         window.location.reload();
+         props.refresh()
         })
         .catch((error) => {
           console.log(error.response);
@@ -44,12 +42,12 @@ function AddIPForm(props) {
     <div className={`AddGroupForm`} >
          <form className="PForm">
             <p>Add IP address<span className="btnCLoseAddGroupForm" title="close" onClick={() => props.onClick(false)}>+</span></p>
-            <input placeholder="Location" 
+            <input placeholder="Location"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
             onLoad={() => setLocation(null)}
             ></input>
-             <input placeholder="IP" 
+             <input placeholder="IP"
             value={IP}
             onChange={(e) => setIP(e.target.value)}
             onLoad={() => setIP(null)}
@@ -57,10 +55,10 @@ function AddIPForm(props) {
             <div className="SendFormBtnHolder">
             {errorMsg}
                 <span onClick={() => handleFormSubmit()}>Add IP</span>
-               
+
             </div>
         </form>
-    </div> 
+    </div>
     </div>
     </div>
   );
