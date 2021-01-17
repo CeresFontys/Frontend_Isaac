@@ -13,12 +13,14 @@ import Header from "../../Components/Header";
 import Heatmap from "../Heatmap/Heatmap";
 import Navigation from "../../Components/Navigation";
 import Footer from "../../Components/Footer";
+import {AccessControlService} from "./AccessControlService";
 
 
 interface IProps {
 }
 
 interface IState {
+	service: AccessControlService,
 	users: User[],
 	ips: Whitelist[],
 	whitelistDropdown: boolean,
@@ -43,13 +45,15 @@ export class AccessControlPage extends React.Component<IProps, IState> {
 		super(props, context);
 		let data = new StartData();
 		this.state = {
-			users: data.users, ips: data.whitelists, whitelistDropdown: false, userDropdown: false, userFormData: {name: "", email: "", password:""}, whitelistFormData: {name: "", ip: ""}
+			service: new AccessControlService(),users: data.users, ips: data.whitelists, whitelistDropdown: false, userDropdown: false, userFormData: {name: "", email: "", password:""}, whitelistFormData: {name: "", ip: ""}
 		}
 	}
+	async componentDidMount() {
+		await this.refresh()
+	}
 
-	refresh(page: AccessControlPage){
-		let data = new StartData();
-		page.setState({users: data.users, ips: data.whitelists})
+	async refresh(){
+		this.setState({users: await this.state.service.getUsers(), ips: await this.state.service.getWhiteLists()})
 	}
 
 	whitelistDropdown(page: AccessControlPage){
@@ -96,9 +100,11 @@ export class AccessControlPage extends React.Component<IProps, IState> {
 		this.setState({whitelistFormData: {name: data.name, ip: event.target.value}})
 	}
 
-	handleWhitelistSubmit(event){
+	async handleWhitelistSubmit(event) {
 		event.preventDefault();
 		this.addWhitelist(this, {name: this.state.whitelistFormData.name, ip: this.state.whitelistFormData.ip, id: 1})
+		await this.state.service.createWhitelist(new Whitelist(0, this.state.whitelistFormData.name, this.state.whitelistFormData.ip))
+		await this.refresh()
 	}
 
 	userDropdownForm(){
@@ -141,9 +147,11 @@ export class AccessControlPage extends React.Component<IProps, IState> {
 		let data = this.state.userFormData;
 		this.setState({userFormData: {name: data.name, email: data.email, password: event.target.value}})
 	}
-	handleUserSubmit(event){
+	async handleUserSubmit(event){
 		event.preventDefault();
-		this.addUser(this, new User(1, this.state.userFormData.name, this.state.userFormData.email))
+		this.addUser(this, new User(0, this.state.userFormData.name, this.state.userFormData.email))
+		await this.state.service.createUser(new User(0, this.state.userFormData.name, this.state.userFormData.email))
+		await this.refresh()
 	}
 
 	removeWhitelist(page: AccessControlPage, whitelist: Whitelist){
@@ -176,8 +184,6 @@ export class AccessControlPage extends React.Component<IProps, IState> {
     <div id="SideBar">
       <Navigation />
 			<div className="contentContainer">
-			
-				<button onClick={(event)=>{this.refresh(this)}}>Refresh</button>
 				{this.userDropdownForm()}
 				<div className="AccessUserHeader"><div className="AccessUserTitle">Users:</div><img className="AccessUserAdd" src={PlusSignIcon} onClick={(event)=>{this.userDropdown(this)}}></img></div>
 					<div className="AccessUserList">
@@ -196,7 +202,7 @@ export class AccessControlPage extends React.Component<IProps, IState> {
 						})
 					}
 				</div>
-			
+
 			</div>
 			<Footer/>
 			</div>

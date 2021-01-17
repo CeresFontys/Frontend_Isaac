@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
 
+import {AccessControlService} from "./AccessControlService";
+
 export default function UserOptionsDropdown(props){
-    const handleRename = () => {
-
+    const handleRename = async () => {
+        var service = new AccessControlService();
+        await service.updateUser(props.user)
+        window.location.reload(false);
     }
-    const handleDelete = () =>{
-
+    const handleDelete = async () => {
+        var service = new AccessControlService();
+        await service.deleteUser(props.user.id)
+        window.location.reload(false);
     }
 
     return (

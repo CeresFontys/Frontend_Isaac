@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
 
+import {AccessControlService} from "./AccessControlService";
+
 export default function IpOptionsDropdown(props){
-    const handleRename = () => {
-
+    const handleRename = async () => {
+        var service = new AccessControlService();
+        await service.updateWhitelist(props.whitelist)
+        window.location.reload(false);
     }
-    const handleDelete = () =>{
-
+    const handleDelete = async () =>{
+        var service = new AccessControlService();
+        await service.deleteWhitelist(props.whitelist.id)
+        window.location.reload(false);
     }
 
     return (

@@ -20,9 +20,11 @@ export class UserView extends Component {
 
     render() {
         let admin = null;
+        /*
         if(this.props.user.roles.some((role) => role=="admin")){
             admin = <span className="userAdmin">Admin</span>
         }
+        */
 
         return (
             <div className="userListItem">
