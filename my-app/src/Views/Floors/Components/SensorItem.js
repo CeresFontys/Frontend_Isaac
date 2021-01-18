@@ -22,7 +22,7 @@ export default function SensorItem(props){
         selected = "selected"
       }
     }
-
+  
     const clickSelected = (e) => {
       if(e.target.closest(".PD")){
         return;
@@ -33,7 +33,7 @@ export default function SensorItem(props){
       dispatch(setSelectedSensor(props.sensor));
     }
       return (
-        <Draggable draggableId={props.sensor.id.toString()} index={props.sensor.uiIndex} >
+        <Draggable draggableId={props.sensor.id.toString()} index={props.sensor.uiIndex} > 
         {(provided, snapshot)=>(
           <div className={`sensorItem ${selected}`}
            {...provided.draggableProps}
@@ -47,10 +47,13 @@ export default function SensorItem(props){
             <span className="SensorName">{props.sensor.name}</span>
             <span className={`SensorTemp ${getTempStatuscolor(temp)}`} >{temp}°</span>
             <span className={`SensorHum ${getHumStatuscolor(hum)}`}>{hum}%</span>
+            <div className="sensorOptionsHolder">
+            <img className="sensorOptionsIcon PD" src={SensorOptionsIcon} onClick={() => SetOptionForm(!optionForm)}/>
+             <SensorOptionsDropdown sensor={props.sensor} active={optionForm} setActive={(value) => SetOptionForm(value)} />
+            </div>
 
 
-
-
+            
             </div>
         )}
         </Draggable>
